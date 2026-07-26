@@ -12,9 +12,9 @@ export function ServicesSection() {
           title="Hizmetlerimiz"
           description="Su tesisatı arıza, bakım ve onarım ihtiyaçlarınız için verilen temel hizmetleri inceleyin."
         />
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
-            <ServiceCard key={service.id} service={service} exploreHref="#contact" />
+            <ServiceCard key={service.slug} service={service} />
           ))}
         </div>
       </Container>

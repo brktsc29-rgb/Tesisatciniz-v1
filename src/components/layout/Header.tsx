@@ -1,33 +1,41 @@
 import { useRef, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { Logo } from '../ui/Logo';
 import { ContactButton } from '../ui/ContactButton';
 import { MobileMenu } from './MobileMenu';
+import { NavDropdown } from './NavDropdown';
 import { primaryNavigation } from '../../data/navigation';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-border-light bg-white/95 backdrop-blur-sm">
         <Container className="flex h-16 items-center justify-between gap-4 md:h-18">
-          <a href="#top" className="shrink-0">
+          <Link to="/" aria-current={isHome ? 'page' : undefined} className="shrink-0">
             <Logo />
-          </a>
+          </Link>
 
           <nav aria-label="Ana site menüsü" className="hidden items-center gap-6 lg:flex">
-            {primaryNavigation.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-sm font-semibold text-ink transition-colors hover:text-blue"
-              >
-                {item.label}
-              </a>
-            ))}
+            {primaryNavigation.map((item) =>
+              item.children ? (
+                <NavDropdown key={item.label} label={item.label} items={item.children} />
+              ) : (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-sm font-semibold text-ink transition-colors hover:text-blue"
+                >
+                  {item.label}
+                </a>
+              ),
+            )}
           </nav>
 
           <div className="flex items-center gap-2">

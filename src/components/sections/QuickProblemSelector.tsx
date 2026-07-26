@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
@@ -14,8 +15,8 @@ export function QuickProblemSelector() {
             const Icon = problem.icon;
             return (
               <li key={problem.id}>
-                <a
-                  href="#services"
+                <Link
+                  to={problem.href}
                   className="group flex h-full flex-col items-start gap-4 rounded-2xl border border-border-light bg-white p-4 transition-all duration-150 hover:-translate-y-0.5 hover:border-teal hover:shadow-md sm:p-5"
                 >
                   <Icon aria-hidden="true" className="h-7 w-7 text-navy" />
@@ -27,7 +28,7 @@ export function QuickProblemSelector() {
                       <ArrowRight aria-hidden="true" className="h-3.5 w-3.5" />
                     </span>
                   </div>
-                </a>
+                </Link>
               </li>
             );
           })}

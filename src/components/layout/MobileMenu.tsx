@@ -1,10 +1,12 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import type { RefObject } from 'react';
-import { X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { X, ChevronDown } from 'lucide-react';
 import { Logo } from '../ui/Logo';
 import { ContactButton } from '../ui/ContactButton';
 import { primaryNavigation } from '../../data/navigation';
 import { useDialogBehavior } from '../../hooks/useDialogBehavior';
+import { cn } from '../../lib/cn';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -14,6 +16,8 @@ interface MobileMenuProps {
 
 export function MobileMenu({ isOpen, onClose, triggerRef }: MobileMenuProps) {
   const panelRef = useRef<HTMLDivElement>(null);
+  const [expandedLabel, setExpandedLabel] = useState<string | null>(null);
+  const location = useLocation();
 
   useDialogBehavior({ isOpen, onClose, containerRef: panelRef, triggerRef });
 
@@ -42,16 +46,70 @@ export function MobileMenu({ isOpen, onClose, triggerRef }: MobileMenuProps) {
         </div>
 
         <nav aria-label="Mobil site menüsü" className="mt-8 flex flex-col gap-1">
-          {primaryNavigation.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={onClose}
-              className="rounded-lg px-3 py-3 text-base font-semibold text-ink transition-colors hover:bg-surface"
-            >
-              {item.label}
-            </a>
-          ))}
+          {primaryNavigation.map((item) => {
+            if (item.children) {
+              const isExpanded = expandedLabel === item.label;
+              const panelId = `mobile-nav-panel-${item.label}`;
+              return (
+                <div key={item.label}>
+                  <button
+                    type="button"
+                    aria-expanded={isExpanded}
+                    aria-controls={panelId}
+                    onClick={() => setExpandedLabel(isExpanded ? null : item.label)}
+                    className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-semibold text-ink transition-colors hover:bg-surface"
+                  >
+                    {item.label}
+                    <ChevronDown
+                      aria-hidden="true"
+                      className={cn(
+                        'h-5 w-5 shrink-0 transition-transform duration-200',
+                        isExpanded && 'rotate-180',
+                      )}
+                    />
+                  </button>
+                  <div
+                    id={panelId}
+                    className={cn(
+                      'grid transition-[grid-template-rows] duration-200 ease-in-out',
+                      isExpanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]',
+                    )}
+                  >
+                    <div className="flex flex-col gap-0.5 overflow-hidden pl-3">
+                      {item.children.map((child) => {
+                        const isActive = child.href === location.pathname;
+                        return (
+                          <Link
+                            key={child.href}
+                            to={child.href}
+                            onClick={onClose}
+                            aria-current={isActive ? 'page' : undefined}
+                            className={cn(
+                              'rounded-lg px-3 py-2.5 text-[15px] font-medium transition-colors',
+                              isActive ? 'text-blue' : 'text-ink/80 hover:bg-surface',
+                            )}
+                          >
+                            {child.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={onClose}
+                className="rounded-lg px-3 py-3 text-base font-semibold text-ink transition-colors hover:bg-surface"
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </nav>
 
         <div className="mt-8 flex flex-col gap-3 border-t border-border-light pt-6">

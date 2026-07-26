@@ -4,8 +4,11 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { MobileStickyContactBar } from './MobileStickyContactBar';
 import { ContactNoticeToast } from '../ui/ContactNoticeToast';
+import { useScrollToHash } from '../../hooks/useScrollToHash';
 
 export function Layout() {
+  useScrollToHash();
+
   return (
     <div className="flex min-h-screen flex-col">
       <a href="#main-content" className="skip-link">

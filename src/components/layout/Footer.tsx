@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Mail } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { Logo } from '../ui/Logo';
@@ -5,9 +6,13 @@ import { ContactButton } from '../ui/ContactButton';
 import { business } from '../../config/business';
 import { primaryNavigation } from '../../data/navigation';
 import { services } from '../../data/services';
+import { districts } from '../../data/districts';
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const quickLinks = primaryNavigation.filter(
+    (item): item is typeof item & { href: string } => Boolean(item.href),
+  );
 
   return (
     <footer className="bg-navy text-white">
@@ -25,13 +30,13 @@ export function Footer() {
             <h2 className="text-sm font-bold tracking-wide text-white uppercase">Hizmetler</h2>
             <ul className="mt-4 flex flex-col gap-2.5">
               {services.map((service) => (
-                <li key={service.id}>
-                  <a
-                    href="#services"
+                <li key={service.slug}>
+                  <Link
+                    to={service.path}
                     className="text-sm text-white/70 transition-colors hover:text-white"
                   >
                     {service.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -42,14 +47,14 @@ export function Footer() {
               Hizmet Bölgeleri
             </h2>
             <ul className="mt-4 flex flex-col gap-2.5">
-              {business.serviceAreas.map((area) => (
-                <li key={area.slug}>
-                  <a
-                    href="#service-areas"
+              {districts.map((district) => (
+                <li key={district.slug}>
+                  <Link
+                    to={district.path}
                     className="text-sm text-white/70 transition-colors hover:text-white"
                   >
-                    {area.name}
-                  </a>
+                    {district.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -58,7 +63,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <h2 className="text-sm font-bold tracking-wide text-white uppercase">İletişim</h2>
             <ul className="mt-4 flex flex-col gap-2.5">
-              {primaryNavigation.map((item) => (
+              {quickLinks.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
