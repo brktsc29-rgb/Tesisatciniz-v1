@@ -2,11 +2,12 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { KeyboardEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
-import { Search, X } from 'lucide-react';
+import { Search, SearchX, X } from 'lucide-react';
 import { useDialogBehavior } from '../hooks/useDialogBehavior';
 import { cn } from '../lib/cn';
 import { services } from '../data/services';
 import { districts } from '../data/districts';
+import { EmptyState } from './ui/EmptyState';
 
 interface SearchEntry {
   label: string;
@@ -59,7 +60,13 @@ interface SearchResultsListProps {
 
 function SearchResultsList({ results, activeIndex, onSelect, onHover }: SearchResultsListProps) {
   if (results.length === 0) {
-    return <p className="px-4 py-8 text-center text-sm text-ink/60">Sonuç bulunamadı.</p>;
+    return (
+      <EmptyState
+        icon={SearchX}
+        title="Sonuç bulunamadı"
+        description="Farklı bir hizmet veya ilçe adıyla tekrar aramayı deneyin."
+      />
+    );
   }
 
   return (
@@ -150,6 +157,7 @@ function SearchInput({ query, onChange, onKeyDown, inputRef }: SearchInputProps)
         ref={inputRef}
         type="text"
         role="combobox"
+        aria-label="Hizmet veya ilçe ara"
         aria-expanded="true"
         aria-controls="site-search-listbox"
         aria-autocomplete="list"

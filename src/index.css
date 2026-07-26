@@ -55,12 +55,18 @@
       scroll-behavior: auto;
     }
 
+    /*
+     * Animasyonlar tamamen kapatılmaz; hareket hassasiyeti olan
+     * kullanıcılar için süre minimuma indirilir (50ms) ki durum
+     * değişiklikleri (açılma/kapanma, ok dönüşü) hâlâ fark edilebilir
+     * kalsın, sadece rahatsız edici olmasın.
+     */
     *,
     *::before,
     *::after {
-      animation-duration: 0.01ms !important;
+      animation-duration: 50ms !important;
       animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
+      transition-duration: 50ms !important;
       scroll-behavior: auto !important;
     }
   }

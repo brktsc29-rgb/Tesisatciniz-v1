@@ -1,6 +1,7 @@
 import type { NavMenuItem } from '../types/content';
 import { services } from './services';
 import { districts } from './districts';
+import { ROUTES } from '../config/routes';
 
 export const primaryNavigation: NavMenuItem[] = [
   {
@@ -11,7 +12,7 @@ export const primaryNavigation: NavMenuItem[] = [
     label: 'Hizmet Bölgeleri',
     children: districts.map((district) => ({ label: district.name, href: district.path })),
   },
-  { label: 'Nasıl Çalışıyoruz', href: '/#how-it-works' },
-  { label: 'Hakkımızda', href: '/#about' },
-  { label: 'İletişim', href: '/#contact' },
+  { label: 'Nasıl Çalışıyoruz', href: ROUTES.homeSection.howItWorks },
+  { label: 'Hakkımızda', href: ROUTES.homeSection.about },
+  { label: 'İletişim', href: ROUTES.homeSection.contact },
 ];

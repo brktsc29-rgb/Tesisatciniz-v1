@@ -5,6 +5,7 @@ import { Footer } from './Footer';
 import { MobileStickyContactBar } from './MobileStickyContactBar';
 import { ContactNoticeToast } from '../ui/ContactNoticeToast';
 import { useScrollToHash } from '../../hooks/useScrollToHash';
+import { theme } from '../../config/theme';
 
 export function Layout() {
   useScrollToHash();
@@ -21,7 +22,11 @@ export function Layout() {
         <Outlet />
       </main>
       <Footer />
-      <div aria-hidden="true" className="h-14 md:hidden" />
+      <div
+        aria-hidden="true"
+        className="md:hidden"
+        style={{ height: theme.spacing.mobileStickyBarHeight }}
+      />
       <MobileStickyContactBar />
       <ContactNoticeToast />
     </div>

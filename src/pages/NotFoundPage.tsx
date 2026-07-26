@@ -9,6 +9,7 @@ import { DistrictCard } from '../components/ui/DistrictCard';
 import { InlineSiteSearch } from '../components/SiteSearch';
 import { services } from '../data/services';
 import { districts } from '../data/districts';
+import { ROUTES } from '../config/routes';
 
 const POPULAR_SERVICES = services.slice(0, 4);
 
@@ -18,7 +19,7 @@ export function NotFoundPage() {
       <SEOHead
         title="Sayfa Bulunamadı | Tesisatçınız"
         description="Aradığınız sayfa bulunamadı. Bağlantı değişmiş veya sayfa kaldırılmış olabilir."
-        canonical="/404"
+        canonical={ROUTES.notFound}
         noIndex
       />
 
@@ -42,13 +43,13 @@ export function NotFoundPage() {
 
           <div className="mt-2 flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center">
             <Link
-              to="/"
+              to={ROUTES.home}
               className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-navy px-6 font-semibold text-white transition-colors hover:bg-navy/90"
             >
               Ana Sayfaya Dön
             </Link>
             <Link
-              to="/#services"
+              to={ROUTES.homeSection.services}
               className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-border-light bg-white px-6 font-semibold text-navy transition-colors hover:border-blue hover:text-blue"
             >
               Hizmetleri İncele

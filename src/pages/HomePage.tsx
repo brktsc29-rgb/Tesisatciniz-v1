@@ -10,6 +10,7 @@ import { FAQSection } from '../components/sections/FAQSection';
 import { FinalCTA } from '../components/sections/FinalCTA';
 import { faqItems } from '../data/faqs';
 import { seo } from '../config/seo';
+import { ROUTES } from '../config/routes';
 import {
   buildFaqSchema,
   buildJsonLdGraph,
@@ -27,7 +28,7 @@ export function HomePage() {
       <SEOHead
         title={seo.defaultTitle}
         description={seo.defaultDescription}
-        canonical="/"
+        canonical={ROUTES.home}
         structuredData={structuredData}
       />
 

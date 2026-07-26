@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useMemo, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
+import { theme } from '../config/theme';
 
 interface ContactNoticeContextValue {
   message: string | null;
@@ -8,7 +9,7 @@ interface ContactNoticeContextValue {
 
 const ContactNoticeContext = createContext<ContactNoticeContextValue | null>(null);
 
-const NOTICE_DURATION_MS = 3500;
+const NOTICE_DURATION_MS = theme.duration.toast;
 
 export function ContactNoticeProvider({ children }: { children: ReactNode }) {
   const [message, setMessage] = useState<string | null>(null);

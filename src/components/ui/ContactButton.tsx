@@ -3,6 +3,7 @@ import { business } from '../../config/business';
 import { buildWhatsAppUrl } from '../../lib/whatsapp';
 import { cn } from '../../lib/cn';
 import { useContactNotice } from '../../hooks/useContactNotice';
+import { theme } from '../../config/theme';
 
 type ContactButtonKind = 'call' | 'whatsapp';
 
@@ -49,8 +50,11 @@ export function ContactButton({
     shape === 'iconCircle'
       ? 'h-12 w-12 rounded-full shrink-0'
       : shape === 'barSegment'
-        ? 'min-h-[56px] flex-1 px-4'
+        ? 'flex-1 px-4'
         : cn('min-h-[52px] rounded-full px-6', fullWidth && 'w-full');
+
+  const shapeStyle =
+    shape === 'barSegment' ? { minHeight: theme.spacing.mobileStickyBarHeight } : undefined;
 
   const classes = cn(
     'inline-flex items-center justify-center gap-2.5 font-semibold transition-colors duration-150',
@@ -78,6 +82,7 @@ export function ContactButton({
       <a
         href={href}
         className={classes}
+        style={shapeStyle}
         {...(kind === 'whatsapp' ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       >
         {content}
@@ -86,7 +91,7 @@ export function ContactButton({
   }
 
   return (
-    <button type="button" className={classes} onClick={() => showNotice(NOTICE_MESSAGE)}>
+    <button type="button" className={classes} style={shapeStyle} onClick={() => showNotice(NOTICE_MESSAGE)}>
       {content}
     </button>
   );

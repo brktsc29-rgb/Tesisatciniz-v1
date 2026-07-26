@@ -19,6 +19,7 @@ import {
   buildOrganizationSchema,
   buildWebSiteSchema,
 } from '../lib/structuredData';
+import { ROUTES } from '../config/routes';
 import type { District } from '../types/district';
 import type { BreadcrumbTrailItem } from '../types/seo';
 
@@ -34,8 +35,8 @@ export function DistrictPage({ district }: DistrictPageProps) {
   const nearbyDistricts = districts.filter((item) => item.slug !== district.slug);
 
   const breadcrumbItems: BreadcrumbTrailItem[] = [
-    { label: 'Ana Sayfa', path: '/' },
-    { label: 'Hizmet Bölgeleri', path: '/#service-areas' },
+    { label: 'Ana Sayfa', path: ROUTES.home },
+    { label: 'Hizmet Bölgeleri', path: ROUTES.homeSection.serviceAreas },
     { label: district.name, path: district.path },
   ];
 

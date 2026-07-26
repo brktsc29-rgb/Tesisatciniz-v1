@@ -16,6 +16,7 @@ export function NavDropdown({ label, items }: NavDropdownProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const location = useLocation();
   const hasActiveChild = items.some((item) => item.href === location.pathname);
+  const panelId = `nav-dropdown-panel-${label}`;
 
   useEffect(() => {
     if (!isOpen) return;
@@ -52,7 +53,7 @@ export function NavDropdown({ label, items }: NavDropdownProps) {
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
         aria-expanded={isOpen}
-        aria-haspopup="true"
+        aria-controls={panelId}
         className={cn(
           'flex items-center gap-1 text-sm font-semibold transition-colors',
           hasActiveChild ? 'text-blue' : 'text-ink hover:text-blue',
@@ -67,28 +68,29 @@ export function NavDropdown({ label, items }: NavDropdownProps) {
 
       {isOpen ? (
         <div
-          role="menu"
-          aria-label={label}
+          id={panelId}
           className="absolute top-full left-1/2 z-30 mt-3 w-56 -translate-x-1/2 rounded-2xl border border-border-light bg-white p-2 shadow-lg"
         >
-          {items.map((item) => {
-            const isActive = item.href === location.pathname;
-            return (
-              <Link
-                key={item.href}
-                to={item.href}
-                role="menuitem"
-                aria-current={isActive ? 'page' : undefined}
-                onClick={() => setIsOpen(false)}
-                className={cn(
-                  'block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors',
-                  isActive ? 'bg-blue/10 text-blue' : 'text-ink hover:bg-surface hover:text-blue',
-                )}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+          <ul aria-label={label} className="flex flex-col">
+            {items.map((item) => {
+              const isActive = item.href === location.pathname;
+              return (
+                <li key={item.href}>
+                  <Link
+                    to={item.href}
+                    aria-current={isActive ? 'page' : undefined}
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      'block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors',
+                      isActive ? 'bg-blue/10 text-blue' : 'text-ink hover:bg-surface hover:text-blue',
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       ) : null}
     </div>

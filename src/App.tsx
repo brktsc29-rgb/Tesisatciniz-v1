@@ -6,6 +6,11 @@ import { HomePage } from './pages/HomePage';
 import { ContactNoticeProvider } from './hooks/useContactNotice';
 import { services } from './data/services';
 import { districts } from './data/districts';
+import { ROUTES } from './config/routes';
+import { ServicePageSkeleton } from './components/skeletons/ServicePageSkeleton';
+import { DistrictPageSkeleton } from './components/skeletons/DistrictPageSkeleton';
+import { BlogListPageSkeleton } from './components/skeletons/BlogListPageSkeleton';
+import { BlogPostPageSkeleton } from './components/skeletons/BlogPostPageSkeleton';
 
 const ServicePage = lazy(() => import('./pages/ServicePage').then((m) => ({ default: m.ServicePage })));
 const DistrictPage = lazy(() =>
@@ -35,7 +40,7 @@ function App() {
                   key={service.slug}
                   path={service.path}
                   element={
-                    <Suspense fallback={null}>
+                    <Suspense fallback={<ServicePageSkeleton />}>
                       <ServicePage service={service} />
                     </Suspense>
                   }
@@ -47,7 +52,7 @@ function App() {
                   key={district.slug}
                   path={district.path}
                   element={
-                    <Suspense fallback={null}>
+                    <Suspense fallback={<DistrictPageSkeleton />}>
                       <DistrictPage district={district} />
                     </Suspense>
                   }
@@ -55,24 +60,24 @@ function App() {
               ))}
 
               <Route
-                path="/blog"
+                path={ROUTES.blog}
                 element={
-                  <Suspense fallback={null}>
+                  <Suspense fallback={<BlogListPageSkeleton />}>
                     <BlogListPage />
                   </Suspense>
                 }
               />
               <Route
-                path="/blog/:slug"
+                path={ROUTES.blogPost(':slug')}
                 element={
-                  <Suspense fallback={null}>
+                  <Suspense fallback={<BlogPostPageSkeleton />}>
                     <BlogPostPage />
                   </Suspense>
                 }
               />
 
               <Route
-                path="*"
+                path={ROUTES.wildcard}
                 element={
                   <Suspense fallback={null}>
                     <NotFoundPage />

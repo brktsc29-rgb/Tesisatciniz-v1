@@ -12,6 +12,7 @@ import {
   buildWebSiteSchema,
 } from '../lib/structuredData';
 import { getRelatedLinks } from '../utils/getRelatedLinks';
+import { ROUTES } from '../config/routes';
 import type { BreadcrumbTrailItem } from '../types/seo';
 
 /**
@@ -26,10 +27,10 @@ export function BlogPostPage() {
     return <NotFoundPage />;
   }
 
-  const path = `/blog/${post.slug}`;
+  const path = ROUTES.blogPost(post.slug);
   const breadcrumbItems: BreadcrumbTrailItem[] = [
-    { label: 'Ana Sayfa', path: '/' },
-    { label: 'Blog', path: '/blog' },
+    { label: 'Ana Sayfa', path: ROUTES.home },
+    { label: 'Blog', path: ROUTES.blog },
     { label: post.title, path },
   ];
 

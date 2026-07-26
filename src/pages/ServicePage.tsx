@@ -22,6 +22,7 @@ import {
   buildServiceSchema,
   buildWebSiteSchema,
 } from '../lib/structuredData';
+import { ROUTES } from '../config/routes';
 import type { Service } from '../types/service';
 import type { BreadcrumbTrailItem } from '../types/seo';
 
@@ -36,8 +37,8 @@ export function ServicePage({ service }: ServicePageProps) {
   const Icon = service.icon;
 
   const breadcrumbItems: BreadcrumbTrailItem[] = [
-    { label: 'Ana Sayfa', path: '/' },
-    { label: 'Hizmetler', path: '/#services' },
+    { label: 'Ana Sayfa', path: ROUTES.home },
+    { label: 'Hizmetler', path: ROUTES.homeSection.services },
     { label: service.shortTitle, path: service.path },
   ];
 

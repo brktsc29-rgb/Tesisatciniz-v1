@@ -200,7 +200,3 @@ export const districts: District[] = [
     ],
   },
 ];
-
-export function getDistrictBySlug(slug: string): District | undefined {
-  return districts.find((district) => district.slug === slug);
-}

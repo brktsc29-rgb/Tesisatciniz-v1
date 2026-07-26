@@ -1,6 +1,7 @@
 import { services, getServiceBySlug } from '../data/services';
 import { districts } from '../data/districts';
 import { getRelatedServiceSlugs } from '../config/relatedServices';
+import { ROUTES } from '../config/routes';
 
 export interface RelatedLink {
   label: string;
@@ -18,7 +19,7 @@ export type RelatedLinksContext =
   | { type: 'district'; slug: string }
   | { type: 'generic' };
 
-const HOME_LINK: RelatedLink = { label: 'Ana Sayfa', path: '/' };
+const HOME_LINK: RelatedLink = { label: 'Ana Sayfa', path: ROUTES.home };
 
 /**
  * Her sayfa türü için ilgili hizmet/ilçe/ana sayfa bağlantılarını otomatik

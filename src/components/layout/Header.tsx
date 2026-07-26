@@ -8,18 +8,19 @@ import { MobileMenu } from './MobileMenu';
 import { NavDropdown } from './NavDropdown';
 import { SiteSearch } from '../SiteSearch';
 import { primaryNavigation } from '../../data/navigation';
+import { ROUTES } from '../../config/routes';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const isHome = location.pathname === ROUTES.home;
 
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-border-light bg-white/95 backdrop-blur-sm">
         <Container className="flex h-16 items-center justify-between gap-4 md:h-18">
-          <Link to="/" aria-current={isHome ? 'page' : undefined} className="shrink-0">
+          <Link to={ROUTES.home} aria-current={isHome ? 'page' : undefined} className="shrink-0">
             <Logo />
           </Link>
 
