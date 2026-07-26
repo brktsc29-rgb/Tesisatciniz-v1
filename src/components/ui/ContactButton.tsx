@@ -49,7 +49,7 @@ export function ContactButton({
     shape === 'iconCircle'
       ? 'h-12 w-12 rounded-full shrink-0'
       : shape === 'barSegment'
-        ? 'min-h-[64px] flex-1 px-4'
+        ? 'min-h-[56px] flex-1 px-4'
         : cn('min-h-[52px] rounded-full px-6', fullWidth && 'w-full');
 
   const classes = cn(

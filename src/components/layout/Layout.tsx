@@ -18,7 +18,7 @@ export function Layout() {
         <Outlet />
       </main>
       <Footer />
-      <div aria-hidden="true" className="h-16 md:hidden" />
+      <div aria-hidden="true" className="h-14 md:hidden" />
       <MobileStickyContactBar />
       <ContactNoticeToast />
     </div>
