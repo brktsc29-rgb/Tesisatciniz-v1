@@ -6,15 +6,15 @@ export const howItWorksSteps: ProcessStepContent[] = [
     description: 'Telefonla arayın veya WhatsApp’tan fotoğraf gönderin.',
   },
   {
-    title: 'Sorunu anlatın',
-    description: 'Arızayı, konumu ve mümkünse görselleri paylaşın.',
+    title: 'Sorunu değerlendirelim',
+    description: 'Paylaştığınız bilgi ve görselleri değerlendirip durumu netleştirelim.',
   },
   {
-    title: 'Müsaitlik öğrenin',
-    description: 'Ustanın programına göre uygun servis zamanı belirlenir.',
+    title: 'Uygun çözümü anlatalım',
+    description: 'Yapılacak müdahale ve ücret hakkında işleme başlanmadan önce bilgi verelim.',
   },
   {
-    title: 'Onay sonrası işlem',
-    description: 'Müdahale ve ücret bilgisi verildikten sonra onayınızla işleme başlanır.',
+    title: 'İşlem tamamlandı',
+    description: 'Onayınızla işleme başlanır ve çalışma alanı temiz bırakılır.',
   },
 ];

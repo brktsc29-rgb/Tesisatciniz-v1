@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { getAbsoluteUrl } from '../../lib/url';
+import { seo } from '../../config/seo';
 import type { StructuredData } from '../../types/seo';
 
 interface SEOHeadProps {
@@ -15,13 +16,11 @@ interface SEOHeadProps {
   structuredData?: StructuredData[];
 }
 
-const DEFAULT_OG_IMAGE = '/og-image.svg';
-
 export function SEOHead({
   title,
   description,
   canonical,
-  ogImage = DEFAULT_OG_IMAGE,
+  ogImage = seo.defaultOgImage,
   type = 'website',
   noIndex = false,
   structuredData,

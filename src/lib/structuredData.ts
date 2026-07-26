@@ -22,6 +22,13 @@ export function buildWebSiteSchema(): StructuredData {
   };
 }
 
+/**
+ * LocalBusiness/Plumber şeması. business.ts'teki alanlar boşsa ilgili
+ * schema.org alanı tamamen atlanır; hiçbir zaman sahte/varsayılan değer
+ * üretilmez. Bugün tüm yeni alanlar (adres, koordinat, çalışma saati,
+ * sosyal profil) boş olduğundan çıktı minimal kalır; ileride bu alanlar
+ * doğrulanıp doldurulduğunda otomatik olarak zenginleşir.
+ */
 export function buildOrganizationSchema(): StructuredData {
   const schema: StructuredData = {
     '@type': 'Plumber',
@@ -36,6 +43,39 @@ export function buildOrganizationSchema(): StructuredData {
 
   if (business.phoneHref) {
     schema.telephone = business.phoneHref.replace('tel:', '');
+  }
+
+  if (business.logo) {
+    schema.logo = getAbsoluteUrl(business.logo);
+  }
+
+  if (business.address) {
+    schema.address = {
+      '@type': 'PostalAddress',
+      streetAddress: business.address,
+      ...(business.city ? { addressLocality: business.city } : {}),
+      addressCountry: 'TR',
+    };
+  }
+
+  if (business.coordinates) {
+    schema.geo = {
+      '@type': 'GeoCoordinates',
+      latitude: business.coordinates.lat,
+      longitude: business.coordinates.lng,
+    };
+  }
+
+  if (business.workingHours.length > 0) {
+    schema.openingHours = business.workingHours;
+  }
+
+  const sameAs = [
+    ...business.socialLinks.map((link) => link.url),
+    ...(business.googleBusinessUrl ? [business.googleBusinessUrl] : []),
+  ];
+  if (sameAs.length > 0) {
+    schema.sameAs = sameAs;
   }
 
   return schema;

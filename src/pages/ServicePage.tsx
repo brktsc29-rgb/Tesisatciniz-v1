@@ -6,11 +6,13 @@ import { Container } from '../components/ui/Container';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { ProcessSteps } from '../components/ui/ProcessSteps';
 import { CheckList } from '../components/ui/CheckList';
+import { InfoCallout } from '../components/ui/InfoCallout';
 import { FaqAccordion } from '../components/ui/FaqAccordion';
 import { FinalCTA } from '../components/sections/FinalCTA';
 import { RelatedServices } from '../components/RelatedServices';
 import { ServiceComparison } from '../components/ServiceComparison';
 import { ServicePrevNext } from '../components/ServicePrevNext';
+import { CommonMistakes } from '../components/CommonMistakes';
 import { districts } from '../data/districts';
 import {
   buildBreadcrumbSchema,
@@ -92,10 +94,31 @@ export function ServicePage({ service }: ServicePageProps) {
         <Container className="flex flex-col gap-10">
           <SectionHeading id="symptoms-heading" title="Hangi durumlarda bu hizmet gerekir?" />
           <CheckList items={service.symptoms.map((symptom) => symptom.label)} />
+          {service.miniCallouts[0] ? (
+            <InfoCallout
+              variant={service.miniCallouts[0].variant}
+              text={service.miniCallouts[0].text}
+              className="mx-auto w-full max-w-2xl"
+            />
+          ) : null}
         </Container>
       </section>
 
-      <section className="bg-blue/5 py-16 md:py-20" aria-labelledby="process-heading">
+      <section className="bg-blue/5 py-16 md:py-20" aria-labelledby="before-service-heading">
+        <Container className="max-w-3xl">
+          <SectionHeading
+            id="before-service-heading"
+            align="left"
+            title="Hizmet öncesinde bilmeniz gerekenler"
+            className="items-start text-left"
+          />
+          <div className="mt-6">
+            <CheckList items={service.beforeServiceNotes} />
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 md:py-20" aria-labelledby="process-heading">
         <Container className="flex flex-col gap-10">
           <SectionHeading id="process-heading" title="Nasıl çalışıyoruz?" />
           <ProcessSteps steps={service.processSteps} />
@@ -103,6 +126,10 @@ export function ServicePage({ service }: ServicePageProps) {
       </section>
 
       <ServiceComparison currentSlug={service.slug} />
+
+      <div className="bg-blue/5">
+        <CommonMistakes mistakes={service.commonMistakes} />
+      </div>
 
       <section className="py-16 md:py-20" aria-labelledby="pricing-heading">
         <Container className="max-w-3xl">
@@ -121,6 +148,13 @@ export function ServicePage({ service }: ServicePageProps) {
             ))}
           </ul>
           <p className="mt-6 text-sm leading-relaxed text-ink/70">{PRICING_ASSURANCE}</p>
+          {service.miniCallouts[1] ? (
+            <InfoCallout
+              variant={service.miniCallouts[1].variant}
+              text={service.miniCallouts[1].text}
+              className="mt-6"
+            />
+          ) : null}
         </Container>
       </section>
 
@@ -147,6 +181,20 @@ export function ServicePage({ service }: ServicePageProps) {
       </section>
 
       <RelatedServices currentSlug={service.slug} />
+
+      <section className="py-16 md:py-20" aria-labelledby="after-service-heading">
+        <Container className="max-w-3xl">
+          <SectionHeading
+            id="after-service-heading"
+            align="left"
+            title="Hizmet sonrası öneriler"
+            className="items-start text-left"
+          />
+          <div className="mt-6">
+            <CheckList items={service.afterServiceTips} />
+          </div>
+        </Container>
+      </section>
 
       <section className="py-16 md:py-20" aria-labelledby="service-faq-heading">
         <Container className="flex flex-col gap-10">

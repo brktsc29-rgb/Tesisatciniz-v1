@@ -4,12 +4,15 @@ import { Breadcrumbs } from '../components/seo/Breadcrumbs';
 import { Container } from '../components/ui/Container';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { blogPosts } from '../data/blogPosts';
+import { buildBreadcrumbSchema, buildJsonLdGraph, buildWebSiteSchema } from '../lib/structuredData';
 import type { BreadcrumbTrailItem } from '../types/seo';
 
 const breadcrumbItems: BreadcrumbTrailItem[] = [
   { label: 'Ana Sayfa', path: '/' },
   { label: 'Blog', path: '/blog' },
 ];
+
+const structuredData = [buildJsonLdGraph([buildWebSiteSchema(), buildBreadcrumbSchema(breadcrumbItems)])];
 
 /**
  * Blog listeleme sayfası. Altyapı hazırlığı amacıyla eklendi; henüz yayına
@@ -23,6 +26,7 @@ export function BlogListPage() {
         description="Su tesisatı bakımı ve arızaları hakkında bilgilendirici yazılar."
         canonical="/blog"
         noIndex
+        structuredData={structuredData}
       />
 
       <Breadcrumbs items={breadcrumbItems} />

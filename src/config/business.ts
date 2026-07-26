@@ -1,9 +1,33 @@
 import type { BusinessConfig } from '../types/business';
 
+const serviceAreas: BusinessConfig['serviceAreas'] = [
+  {
+    slug: 'kagithane',
+    name: 'Kağıthane',
+    description:
+      'Çağlayan, Gültepe, Çeliktepe, Seyrantepe, Hamidiye, Nurtepe, Sultan Selim ve çevresi.',
+  },
+  {
+    slug: 'sisli',
+    name: 'Şişli',
+    description:
+      'Mecidiyeköy, Fulya, Esentepe, Gülbahar, Feriköy, Teşvikiye, Nişantaşı ve çevresi.',
+  },
+  {
+    slug: 'besiktas',
+    name: 'Beşiktaş',
+    description: 'Etiler, Levent, Gayrettepe, Ortaköy, Ulus, Akatlar, Bebek ve çevresi.',
+  },
+];
+
 /**
  * Tek merkezi işletme ayarları dosyası.
  * Telefon/WhatsApp numarası netleşene kadar bu alanlar boş bırakılmalıdır.
  * Boş bırakıldığında ilgili bileşenler otomatik olarak kırık bağlantı üretmez.
+ *
+ * Faz 2.2 ile eklenen logo/workingHours/googleBusinessUrl/reviewUrl/
+ * coordinates/address/city alanları da aynı prensiple boş bırakılmıştır;
+ * doğrulanmadan doldurulmaz ve hiçbir bileşen bunları zorunlu kullanmaz.
  */
 export const business: BusinessConfig = {
   businessName: 'Tesisatçınız',
@@ -18,25 +42,7 @@ export const business: BusinessConfig = {
 
   email: '',
 
-  serviceAreas: [
-    {
-      slug: 'kagithane',
-      name: 'Kağıthane',
-      description:
-        'Çağlayan, Gültepe, Çeliktepe, Seyrantepe, Hamidiye, Nurtepe, Sultan Selim ve çevresi.',
-    },
-    {
-      slug: 'sisli',
-      name: 'Şişli',
-      description:
-        'Mecidiyeköy, Fulya, Esentepe, Gülbahar, Feriköy, Teşvikiye, Nişantaşı ve çevresi.',
-    },
-    {
-      slug: 'besiktas',
-      name: 'Beşiktaş',
-      description: 'Etiler, Levent, Gayrettepe, Ortaköy, Ulus, Akatlar, Bebek ve çevresi.',
-    },
-  ],
+  serviceAreas,
 
   workingMessage: 'Servis zamanı ustanın mevcut programına göre belirlenir.',
 
@@ -45,4 +51,13 @@ export const business: BusinessConfig = {
   capabilities: {
     hasLeakDetectionDevice: false,
   },
+
+  logo: '',
+  workingHours: [],
+  googleBusinessUrl: '',
+  reviewUrl: '',
+  coordinates: null,
+  address: '',
+  city: '',
+  districts: serviceAreas.map((area) => area.name),
 };

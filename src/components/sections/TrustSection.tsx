@@ -1,14 +1,13 @@
 import { Container } from '../ui/Container';
+import { SectionHeading } from '../ui/SectionHeading';
 import { trustItems } from '../../data/trust';
 
 export function TrustSection() {
   return (
     <section id="about" aria-labelledby="trust-heading" className="scroll-mt-20 bg-blue/5 py-16 md:py-24">
-      <Container>
-        <h2 id="trust-heading" className="sr-only">
-          Neden Tesisatçınız
-        </h2>
-        <ul className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+      <Container className="flex flex-col gap-10">
+        <SectionHeading id="trust-heading" title="Neden Bizi Tercih Etmelisiniz?" />
+        <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6">
           {trustItems.map((item) => {
             const Icon = item.icon;
             return (

@@ -5,7 +5,12 @@ import { Container } from '../components/ui/Container';
 import { NotFoundPage } from './NotFoundPage';
 import { getBlogPostBySlug } from '../data/blogPosts';
 import { renderMarkdown } from '../lib/markdown';
-import { buildArticleSchema, buildJsonLdGraph, buildWebSiteSchema } from '../lib/structuredData';
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildJsonLdGraph,
+  buildWebSiteSchema,
+} from '../lib/structuredData';
 import { getRelatedLinks } from '../utils/getRelatedLinks';
 import type { BreadcrumbTrailItem } from '../types/seo';
 
@@ -29,7 +34,11 @@ export function BlogPostPage() {
   ];
 
   const structuredData = [
-    buildJsonLdGraph([buildWebSiteSchema(), buildArticleSchema(post, path)]),
+    buildJsonLdGraph([
+      buildWebSiteSchema(),
+      buildBreadcrumbSchema(breadcrumbItems),
+      buildArticleSchema(post, path),
+    ]),
   ];
 
   const relatedLinks = getRelatedLinks({ type: 'generic' });

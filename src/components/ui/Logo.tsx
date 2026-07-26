@@ -1,5 +1,6 @@
 import { useId } from 'react';
 import { cn } from '../../lib/cn';
+import { business } from '../../config/business';
 
 const LOGO_ALT = 'Tesisatçınız Su Tesisatı ve Teknik Servis';
 
@@ -7,7 +8,7 @@ interface LogoProps {
   tone?: 'default' | 'inverted';
   showTagline?: boolean;
   className?: string;
-  /** Gerçek logo dosyası eklendiğinde bu alana yol verilmesi yeterlidir. */
+  /** Gerçek logo dosyası eklendiğinde bu alana yol verilmesi yeterlidir; verilmezse business.logo kullanılır. */
   src?: string;
 }
 
@@ -15,9 +16,10 @@ export function Logo({ tone = 'default', showTagline = true, className, src }: L
   const gradientId = useId();
   const textColor = tone === 'inverted' ? 'text-white' : 'text-navy';
   const taglineColor = tone === 'inverted' ? 'text-teal' : 'text-blue';
+  const resolvedSrc = src || business.logo || undefined;
 
-  if (src) {
-    return <img src={src} alt={LOGO_ALT} className={cn('h-10 w-auto', className)} />;
+  if (resolvedSrc) {
+    return <img src={resolvedSrc} alt={LOGO_ALT} className={cn('h-10 w-auto', className)} />;
   }
 
   return (

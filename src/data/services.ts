@@ -88,6 +88,31 @@ export const services: Service[] = [
     schemaName: 'Su Kaçağı Tespiti',
     schemaDescription:
       'Kağıthane, Şişli ve Beşiktaş bölgelerinde su kaçağı belirtilerinin değerlendirilmesi ve kaynağın kontrol edilmesine yönelik servis hizmeti.',
+    beforeServiceNotes: [
+      'Kaçağı ne zaman fark ettiğinizi belirtmeniz değerlendirmeyi hızlandırır.',
+      'Nemli bölgenin fotoğrafını paylaşmanız ön inceleme için faydalı olur.',
+      'Bazı durumlarda kaynağın belirlenmesi için yerinde inceleme gerekebilir.',
+    ],
+    afterServiceTips: [
+      'Duvarı veya zemini hemen kapatmayın.',
+      'Bölgeyi birkaç gün gözlemleyin.',
+      'Nem tekrar ederse durumu bize bildirin.',
+    ],
+    commonMistakes: [
+      'Kaçağı fark edince suyu kapatmadan beklemek',
+      'Nem izini kendi başına boyayarak gizlemeye çalışmak',
+      'Kaynağını tahmin ederek yanlış noktayı açmak',
+    ],
+    miniCallouts: [
+      {
+        variant: 'tip',
+        text: 'Su sayacınızı gece kapatıp sabah kontrol etmek, kaçak şüphesini erken fark etmenize yardımcı olabilir.',
+      },
+      {
+        variant: 'info',
+        text: 'Kaçağın kaynağı çoğu zaman ıslaklığın göründüğü noktadan farklı bir yerde olabilir.',
+      },
+    ],
   },
   {
     slug: 'gider-tikanikligi-acma',
@@ -168,6 +193,31 @@ export const services: Service[] = [
     schemaName: 'Gider Tıkanıklığı Açma',
     schemaDescription:
       'Kağıthane, Şişli ve Beşiktaş bölgelerinde mutfak, banyo ve bina içi gider tıkanıklıklarına yönelik servis hizmeti.',
+    beforeServiceNotes: [
+      'Tıkanıklığın hangi giderde olduğunu belirtmeniz süreci hızlandırır.',
+      'Daha önce denediğiniz yöntemleri paylaşmanız değerlendirmeye yardımcı olur.',
+      'Bazı durumlarda tıkanıklığın kaynağı için yerinde inceleme gerekebilir.',
+    ],
+    afterServiceTips: [
+      'İlk kullanımlarda suyu kontrollü şekilde akıtın.',
+      'Katı atık ve yağ dökmekten kaçının.',
+      'Tekrar yavaşlama fark ederseniz bize bildirin.',
+    ],
+    commonMistakes: [
+      'Giderlere kimyasal açıcı dökmek',
+      'Telle veya sert aletle boruyu zorlamak',
+      'Tıkanıklığı görmezden gelip suyu zorlamaya devam etmek',
+    ],
+    miniCallouts: [
+      {
+        variant: 'warning',
+        text: 'Sık kullanılan kimyasal gider açıcılar, tekrarlayan kullanımda boru malzemesine zarar verebilir.',
+      },
+      {
+        variant: 'tip',
+        text: 'Mutfak giderine yağ dökmemek, tıkanıklığın tekrarlama sıklığını azaltabilir.',
+      },
+    ],
   },
   {
     slug: 'klozet-rezervuar-tamiri',
@@ -248,6 +298,31 @@ export const services: Service[] = [
     schemaName: 'Klozet ve Rezervuar Tamiri',
     schemaDescription:
       'Kağıthane, Şişli ve Beşiktaş bölgelerinde klozet ve rezervuar arızalarına yönelik onarım hizmeti.',
+    beforeServiceNotes: [
+      'Arızanın ne zaman başladığını belirtmeniz değerlendirmeyi kolaylaştırır.',
+      'Rezervuarın marka veya modelini biliyorsanız paylaşmanız faydalı olur.',
+      'Bazı durumlarda parça teminine bağlı olarak ek süre gerekebilir.',
+    ],
+    afterServiceTips: [
+      'İlk kullanımlarda su seviyesini gözlemleyin.',
+      'Yeni takılan parçaları sert kullanmaktan kaçının.',
+      'Sızıntı fark ederseniz bize bildirin.',
+    ],
+    commonMistakes: [
+      'Klozete yabancı cisim atmak',
+      'Rezervuar iç takımını uygunsuz bir parçayla değiştirmeye çalışmak',
+      'Sürekli su akışını uzun süre görmezden gelmek',
+    ],
+    miniCallouts: [
+      {
+        variant: 'info',
+        text: 'Rezervuarın sürekli su alması genellikle şamandıra veya iç takımdaki aşınmadan kaynaklanır.',
+      },
+      {
+        variant: 'warning',
+        text: 'Klozete ıslak mendil gibi yabancı cisimler atmak, tıkanıklığa ve rezervuar arızasına yol açabilir.',
+      },
+    ],
   },
   {
     slug: 'musluk-batarya-degisimi',
@@ -327,6 +402,31 @@ export const services: Service[] = [
     schemaName: 'Musluk ve Batarya Değişimi',
     schemaDescription:
       'Kağıthane, Şişli ve Beşiktaş bölgelerinde musluk ve batarya onarım, bakım ve değişim hizmeti.',
+    beforeServiceNotes: [
+      'Musluğun marka veya modelini biliyorsanız belirtmeniz süreci hızlandırır.',
+      'Sorunun ne zaman başladığını paylaşmanız değerlendirmeye yardımcı olur.',
+      'Bazı durumlarda parça uyumluluğu için yerinde inceleme gerekebilir.',
+    ],
+    afterServiceTips: [
+      'İlk gün bağlantı noktalarını kontrol edin.',
+      'Batarya kolunu aşırı sıkmaktan kaçının.',
+      'Damlama devam ederse durumu bize bildirin.',
+    ],
+    commonMistakes: [
+      'Damlatıyor diye musluğu aşırı sıkmak',
+      'Yanlış boyutta conta kullanmak',
+      'Bağlantıyı uygun olmayan aletlerle sökmeye çalışmak',
+    ],
+    miniCallouts: [
+      {
+        variant: 'tip',
+        text: 'Damlatan bir musluğu aşırı sıkmak yerine, iç contanın kontrol edilmesi genellikle daha etkilidir.',
+      },
+      {
+        variant: 'info',
+        text: 'Batarya kolunun sertleşmesi çoğunlukla iç mekanizmadaki aşınmadan kaynaklanır.',
+      },
+    ],
   },
   {
     slug: 'lavabo-evye-tikanikligi',
@@ -406,6 +506,31 @@ export const services: Service[] = [
     schemaName: 'Lavabo ve Evye Tıkanıklığı Açma',
     schemaDescription:
       'Kağıthane, Şişli ve Beşiktaş bölgelerinde lavabo ve evye tıkanıklıklarının giderilmesine yönelik servis hizmeti.',
+    beforeServiceNotes: [
+      'Tıkanıklığın lavabo mu evye mi olduğunu belirtmeniz süreci hızlandırır.',
+      'Daha önce denediğiniz yöntemleri paylaşmanız değerlendirmeye yardımcı olur.',
+      'Bazı durumlarda sifon bölgesi için yerinde inceleme gerekebilir.',
+    ],
+    afterServiceTips: [
+      'İlk kullanımlarda suyu kontrollü şekilde akıtın.',
+      'Yağ ve katı atık dökmekten kaçının.',
+      'Tekrar tıkanma olursa durumu bize bildirin.',
+    ],
+    commonMistakes: [
+      'Giderlere yağ dökmek',
+      'Kimyasal açıcıları sık sık kullanmak',
+      'Sifonu uygun olmayan aletlerle zorlamak',
+    ],
+    miniCallouts: [
+      {
+        variant: 'tip',
+        text: 'Yağ ve yemek kalıntılarını lavaboya değil çöpe atmak, tıkanıklık sıklığını azaltabilir.',
+      },
+      {
+        variant: 'info',
+        text: 'Tıkanıklıklar çoğunlukla sifon bölgesinde birikim yapan kalıntılardan kaynaklanır.',
+      },
+    ],
   },
   {
     slug: 'tesisat-ariza-onarim',
@@ -486,6 +611,31 @@ export const services: Service[] = [
     schemaName: 'Tesisat Arıza ve Onarım',
     schemaDescription:
       'Kağıthane, Şişli ve Beşiktaş bölgelerinde su tesisatı arıza, bağlantı ve onarım hizmeti.',
+    beforeServiceNotes: [
+      'Arızanın bulunduğu noktayı ve mümkünse fotoğrafını paylaşmanız süreci hızlandırır.',
+      'Tesisatın yaklaşık yaşını belirtmeniz değerlendirmeye yardımcı olur.',
+      'Bazı durumlarda arızanın kapsamı için yerinde inceleme gerekebilir.',
+    ],
+    afterServiceTips: [
+      'Onarılan bölgeyi birkaç gün gözlemleyin.',
+      'Ani sıcaklık değişimlerinden kaçının.',
+      'Yeni bir belirti fark ederseniz bize bildirin.',
+    ],
+    commonMistakes: [
+      'Küçük sızıntıları geciktirmek',
+      'Uygun olmayan malzeme ile geçici onarım yapmaya çalışmak',
+      'Bağlantıları kendi başına aşırı sıkmak',
+    ],
+    miniCallouts: [
+      {
+        variant: 'warning',
+        text: 'Küçük bir sızıntının geciktirilmesi, zamanla daha kapsamlı bir onarım ihtiyacına yol açabilir.',
+      },
+      {
+        variant: 'tip',
+        text: 'Flex hortumların belirli aralıklarla kontrol edilmesi, ani su kaçaklarının önüne geçebilir.',
+      },
+    ],
   },
   {
     slug: 'kombi-montaji',
@@ -573,6 +723,31 @@ export const services: Service[] = [
       description:
         'Doğalgaz hattı, gaz açma, proje, baca uygunluğu ve cihazın ilk çalıştırılması gibi işlemler ilgili yetkili kuruluş veya marka servisi gerektirebilir. Hizmet kapsamı, mevcut tesisat ve cihaz koşulları değerlendirildikten sonra netleştirilir.',
     },
+    beforeServiceNotes: [
+      'Kombi marka ve modelini belirtmeniz süreci hızlandırır.',
+      'Montaj alanının fotoğrafını paylaşmanız değerlendirmeyi kolaylaştırır.',
+      'Mevcut tesisat bağlantılarının yaşını belirtmeniz faydalı olur.',
+    ],
+    afterServiceTips: [
+      'İlk çalıştırma sonrası basınç göstergesini gözlemleyin.',
+      'Cihazın kullanım kılavuzunu inceleyin.',
+      'Garanti kapsamındaki işlemler için üretici ile iletişime geçin.',
+    ],
+    commonMistakes: [
+      'Montajı uzman değerlendirmesi olmadan yaptırmak',
+      'Baca ve gaz hattı kontrollerini atlamak',
+      'Garanti şartlarını kontrol etmeden işlem yaptırmak',
+    ],
+    miniCallouts: [
+      {
+        variant: 'info',
+        text: 'Kombi montajı; sökme, yerleştirme ve mevcut tesisat bağlantılarının değerlendirilmesini kapsar.',
+      },
+      {
+        variant: 'warning',
+        text: 'Gaz açma ve baca uygunluğu gibi işlemler, ilgili yetkili kuruluş veya marka servisi gerektirebilir.',
+      },
+    ],
   },
 ];
 

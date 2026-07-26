@@ -23,6 +23,11 @@ export interface ServiceInfoBox {
   description: string;
 }
 
+export interface ServiceMiniCallout {
+  variant: 'info' | 'tip' | 'warning';
+  text: string;
+}
+
 export interface Service {
   slug: string;
   /** Route path, e.g. "/su-kacagi-tespiti" */
@@ -50,4 +55,12 @@ export interface Service {
   schemaDescription: string;
   /** Optional callout box for services needing extra safety/scope clarification (e.g. kombi montajı). */
   infoBox?: ServiceInfoBox;
+  /** "Hizmet öncesinde bilmeniz gerekenler" — servise özel hazırlık notları. */
+  beforeServiceNotes: string[];
+  /** "Hizmet sonrası öneriler" — sayfa sonunda gösterilir. */
+  afterServiceTips: string[];
+  /** "Kullanıcıların en sık yaptığı hatalar" */
+  commonMistakes: string[];
+  /** Sayfa içine doğal şekilde dağıtılan küçük bilgi kutuları. */
+  miniCallouts: ServiceMiniCallout[];
 }

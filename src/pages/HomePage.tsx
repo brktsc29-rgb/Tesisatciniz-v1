@@ -9,16 +9,13 @@ import { ServiceAreasSection } from '../components/sections/ServiceAreasSection'
 import { FAQSection } from '../components/sections/FAQSection';
 import { FinalCTA } from '../components/sections/FinalCTA';
 import { faqItems } from '../data/faqs';
+import { seo } from '../config/seo';
 import {
   buildFaqSchema,
   buildJsonLdGraph,
   buildOrganizationSchema,
   buildWebSiteSchema,
 } from '../lib/structuredData';
-
-const PAGE_TITLE = 'Tesisatçınız | Kağıthane, Şişli ve Beşiktaş Su Tesisatçısı';
-const PAGE_DESCRIPTION =
-  'Kağıthane, Şişli ve Beşiktaş’ta su kaçağı, gider tıkanıklığı, klozet, musluk ve tesisat onarımı için servis müsaitliğini öğrenin.';
 
 export function HomePage() {
   const structuredData = [
@@ -28,8 +25,8 @@ export function HomePage() {
   return (
     <>
       <SEOHead
-        title={PAGE_TITLE}
-        description={PAGE_DESCRIPTION}
+        title={seo.defaultTitle}
+        description={seo.defaultDescription}
         canonical="/"
         structuredData={structuredData}
       />
