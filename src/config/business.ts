@@ -25,9 +25,10 @@ const serviceAreas: BusinessConfig['serviceAreas'] = [
  * Telefon/WhatsApp numarası netleşene kadar bu alanlar boş bırakılmalıdır.
  * Boş bırakıldığında ilgili bileşenler otomatik olarak kırık bağlantı üretmez.
  *
- * Faz 2.2 ile eklenen logo/workingHours/googleBusinessUrl/reviewUrl/
- * coordinates/address/city alanları da aynı prensiple boş bırakılmıştır;
- * doğrulanmadan doldurulmaz ve hiçbir bileşen bunları zorunlu kullanmaz.
+ * Faz 2.2 ile eklenen workingHours/googleBusinessUrl/reviewUrl/coordinates/
+ * address/city alanları aynı prensiple boş bırakılmıştır; doğrulanmadan
+ * doldurulmaz ve hiçbir bileşen bunları zorunlu kullanmaz. `logo` alanı
+ * onaylı marka varlığıyla (public/brand/logo.svg, şeffaf zemin) dolduruldu.
  */
 export const business: BusinessConfig = {
   businessName: 'Tesisatçınız',
@@ -52,7 +53,7 @@ export const business: BusinessConfig = {
     hasLeakDetectionDevice: false,
   },
 
-  logo: '',
+  logo: '/brand/logo.svg',
   workingHours: [],
   googleBusinessUrl: '',
   reviewUrl: '',
