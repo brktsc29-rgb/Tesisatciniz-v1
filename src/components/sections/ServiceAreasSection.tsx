@@ -17,6 +17,7 @@ export function ServiceAreasSection() {
           {districts.map((district) => (
             <DistrictCard
               key={district.slug}
+              slug={district.slug}
               name={district.name}
               description={district.intro}
               href={district.path}

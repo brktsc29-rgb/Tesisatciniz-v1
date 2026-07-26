@@ -3,6 +3,7 @@ import { getAbsoluteUrl } from './url';
 import type { BreadcrumbTrailItem, StructuredData } from '../types/seo';
 import type { FaqItem } from '../types/content';
 import type { Service } from '../types/service';
+import type { BlogPost } from '../types/blog';
 
 /**
  * Merkezi, tip güvenli JSON-LD üretim katmanı. Doğrulanmamış hiçbir bilgi
@@ -80,6 +81,29 @@ export function buildServiceSchema(service: Service): StructuredData {
       '@type': 'AdministrativeArea',
       name: area.name,
     })),
+  };
+}
+
+/**
+ * Blog altyapısı için Article şeması. Blog henüz yayına alınmadığından
+ * (noindex) bu şema fiilen indekslenmez; ilerideki yayın için altyapı
+ * olarak hazırlanmıştır. Gerçek görsel olmadığından `image` alanı eklenmez.
+ */
+export function buildArticleSchema(post: BlogPost, path: string): StructuredData {
+  return {
+    '@type': 'Article',
+    '@id': `${getAbsoluteUrl(path)}#article`,
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.publishedAt,
+    url: getAbsoluteUrl(path),
+    author: {
+      '@type': 'Organization',
+      name: business.businessName,
+    },
+    publisher: {
+      '@id': `${getAbsoluteUrl('/')}#organization`,
+    },
   };
 }
 

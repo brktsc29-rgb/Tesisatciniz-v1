@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { LucideIcon } from 'lucide-react';
 import { cn } from '../../lib/cn';
 
@@ -10,7 +11,7 @@ interface ResponsiveImageProps {
   rounded?: '2xl' | 'xl';
   loading?: 'lazy' | 'eager';
   fetchPriority?: 'high' | 'low' | 'auto';
-  /** Gerçek görsel eklenene kadar gösterilecek ikon tabanlı yer tutucu. */
+  /** Gerçek görsel eklenene kadar veya yüklenemediğinde gösterilecek ikon tabanlı yer tutucu. */
   placeholderIcon?: LucideIcon;
   placeholderTone?: 'navy' | 'blue' | 'teal';
 }
@@ -24,7 +25,8 @@ const toneClasses: Record<NonNullable<ResponsiveImageProps['placeholderTone']>, 
 /**
  * Gerçek fotoğraf gelene kadar sabit en-boy oranlı, CLS oluşturmayan bir
  * yer tutucu gösterir. `src` sağlandığında normal <img> render eder;
- * ileride tek yapılması gereken şey src prop'unu doldurmaktır.
+ * dosya henüz yoksa veya yüklenemezse (404 vb.) kırık resim ikonu ya da
+ * konsol hatası oluşturmadan aynı yer tutucuya sessizce geri döner.
  */
 export function ResponsiveImage({
   src,
@@ -38,9 +40,10 @@ export function ResponsiveImage({
   placeholderIcon: Icon,
   placeholderTone = 'blue',
 }: ResponsiveImageProps) {
+  const [failed, setFailed] = useState(false);
   const roundedClass = rounded === '2xl' ? 'rounded-2xl' : 'rounded-xl';
 
-  if (src) {
+  if (src && !failed) {
     return (
       <img
         src={src}
@@ -49,6 +52,7 @@ export function ResponsiveImage({
         height={height}
         loading={loading}
         fetchPriority={fetchPriority}
+        onError={() => setFailed(true)}
         className={cn('object-cover', roundedClass, className)}
         style={{ aspectRatio: `${width} / ${height}` }}
       />

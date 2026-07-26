@@ -64,6 +64,7 @@ export function DistrictPage({ district }: DistrictPageProps) {
         title={district.heroTitle}
         description={district.heroDescription}
         image={{
+          src: `/images/districts/${district.slug}/hero.jpg`,
           alt: `${district.name} hizmet bölgesi`,
           placeholderIcon: MapPinned,
           placeholderTone: imageTone,
@@ -138,6 +139,7 @@ export function DistrictPage({ district }: DistrictPageProps) {
             {nearbyDistricts.map((nearby) => (
               <DistrictCard
                 key={nearby.slug}
+                slug={nearby.slug}
                 name={nearby.name}
                 description={nearby.intro}
                 href={nearby.path}

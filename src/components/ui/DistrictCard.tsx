@@ -6,13 +6,16 @@ interface DistrictCardProps {
   name: string;
   description: string;
   href: string;
+  /** Görsel dosyasının bulunduğu ilçe slug'ı (public/images/districts/**). */
+  slug?: string;
 }
 
 /** Koyu, fotoğraf-üstü kaplamalı ilçe kartı. Ana sayfa ve ilçe sayfaları arasında paylaşılır. */
-export function DistrictCard({ name, description, href }: DistrictCardProps) {
+export function DistrictCard({ name, description, href, slug }: DistrictCardProps) {
   return (
     <div className="relative aspect-[4/3] overflow-hidden rounded-2xl sm:aspect-[3/4]">
       <ResponsiveImage
+        src={slug ? `/images/districts/${slug}/card.jpg` : undefined}
         alt={`${name} bölgesi`}
         width={400}
         height={500}

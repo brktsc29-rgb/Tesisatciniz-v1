@@ -6,6 +6,7 @@ import { Logo } from '../ui/Logo';
 import { ContactButton } from '../ui/ContactButton';
 import { MobileMenu } from './MobileMenu';
 import { NavDropdown } from './NavDropdown';
+import { SiteSearch } from '../SiteSearch';
 import { primaryNavigation } from '../../data/navigation';
 
 export function Header() {
@@ -39,6 +40,7 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <SiteSearch />
             <div className="lg:hidden">
               <ContactButton kind="call" label="Müsaitlik İçin Ara" shape="iconCircle" />
             </div>

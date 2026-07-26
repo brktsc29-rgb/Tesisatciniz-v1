@@ -5,6 +5,7 @@ import { ContactButton } from '../ui/ContactButton';
 import { ResponsiveImage } from '../ui/ResponsiveImage';
 
 interface PageHeroImage {
+  src?: string;
   alt: string;
   placeholderIcon: LucideIcon;
   placeholderTone: 'navy' | 'blue' | 'teal';
@@ -40,6 +41,7 @@ export function PageHero({ eyebrow, title, description, image, infoBoxText }: Pa
 
         <div className="md:col-start-2 md:row-span-2 md:row-start-1">
           <ResponsiveImage
+            src={image.src}
             alt={image.alt}
             width={720}
             height={480}

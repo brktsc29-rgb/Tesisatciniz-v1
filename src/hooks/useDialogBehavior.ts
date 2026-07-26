@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import type { RefObject } from 'react';
 
 const FOCUSABLE_SELECTOR =
@@ -14,8 +14,20 @@ interface DialogBehaviorOptions {
 /**
  * Drawer/dialog benzeri panel bileşenleri için ortak davranışlar:
  * Escape ile kapanma, dışarı tıklayınca kapanma, odak tuzağı ve body scroll kilidi.
+ *
+ * `onClose` her render'da yeniden oluşturulan bir inline fonksiyon olabilir
+ * (çağıran bileşenlerin çoğu bunu böyle kullanır). Bu yüzden asıl efekt
+ * yalnızca `isOpen` değiştiğinde çalışır; güncel `onClose` bir ref
+ * üzerinden okunur. Aksi hâlde panel açıkken oluşan her state güncellemesi
+ * (örn. arama kutusuna yazı yazmak, bir accordion'u açmak) efekti yeniden
+ * tetikleyip odağı beklenmedik şekilde tetikleyici butona geri sıçratırdı.
  */
 export function useDialogBehavior({ isOpen, onClose, containerRef, triggerRef }: DialogBehaviorOptions): void {
+  const onCloseRef = useRef(onClose);
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  });
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -29,7 +41,7 @@ export function useDialogBehavior({ isOpen, onClose, containerRef, triggerRef }:
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
         event.preventDefault();
-        onClose();
+        onCloseRef.current();
         return;
       }
 
@@ -55,7 +67,7 @@ export function useDialogBehavior({ isOpen, onClose, containerRef, triggerRef }:
 
     function handlePointerDown(event: PointerEvent) {
       if (container && event.target instanceof Node && !container.contains(event.target)) {
-        onClose();
+        onCloseRef.current();
       }
     }
 
@@ -70,5 +82,6 @@ export function useDialogBehavior({ isOpen, onClose, containerRef, triggerRef }:
       document.removeEventListener('pointerdown', handlePointerDown);
       trigger?.focus();
     };
-  }, [isOpen, onClose, containerRef, triggerRef]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, containerRef, triggerRef]);
 }

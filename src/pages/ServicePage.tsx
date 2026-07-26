@@ -7,10 +7,11 @@ import { SectionHeading } from '../components/ui/SectionHeading';
 import { ProcessSteps } from '../components/ui/ProcessSteps';
 import { CheckList } from '../components/ui/CheckList';
 import { FaqAccordion } from '../components/ui/FaqAccordion';
-import { ServiceCard } from '../components/ui/ServiceCard';
 import { FinalCTA } from '../components/sections/FinalCTA';
+import { RelatedServices } from '../components/RelatedServices';
+import { ServiceComparison } from '../components/ServiceComparison';
+import { ServicePrevNext } from '../components/ServicePrevNext';
 import { districts } from '../data/districts';
-import { getRelatedServices } from '../data/services';
 import {
   buildBreadcrumbSchema,
   buildFaqSchema,
@@ -31,7 +32,6 @@ interface ServicePageProps {
 
 export function ServicePage({ service }: ServicePageProps) {
   const Icon = service.icon;
-  const relatedServices = getRelatedServices(service);
 
   const breadcrumbItems: BreadcrumbTrailItem[] = [
     { label: 'Ana Sayfa', path: '/' },
@@ -59,6 +59,7 @@ export function ServicePage({ service }: ServicePageProps) {
       />
 
       <Breadcrumbs items={breadcrumbItems} />
+      <ServicePrevNext currentSlug={service.slug} />
 
       <PageHero
         eyebrow="Kağıthane • Şişli • Beşiktaş"
@@ -100,6 +101,8 @@ export function ServicePage({ service }: ServicePageProps) {
           <ProcessSteps steps={service.processSteps} />
         </Container>
       </section>
+
+      <ServiceComparison currentSlug={service.slug} />
 
       <section className="py-16 md:py-20" aria-labelledby="pricing-heading">
         <Container className="max-w-3xl">
@@ -143,18 +146,7 @@ export function ServicePage({ service }: ServicePageProps) {
         </Container>
       </section>
 
-      {relatedServices.length > 0 ? (
-        <section className="bg-blue/5 py-16 md:py-20" aria-labelledby="related-services-heading">
-          <Container className="flex flex-col gap-10">
-            <SectionHeading id="related-services-heading" title="İlgili hizmetler" />
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-              {relatedServices.map((related) => (
-                <ServiceCard key={related.slug} service={related} />
-              ))}
-            </div>
-          </Container>
-        </section>
-      ) : null}
+      <RelatedServices currentSlug={service.slug} />
 
       <section className="py-16 md:py-20" aria-labelledby="service-faq-heading">
         <Container className="flex flex-col gap-10">

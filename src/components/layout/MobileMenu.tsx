@@ -1,9 +1,10 @@
 import { useRef, useState } from 'react';
 import type { RefObject } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { X, ChevronDown } from 'lucide-react';
+import { X, ChevronDown, Search } from 'lucide-react';
 import { Logo } from '../ui/Logo';
 import { ContactButton } from '../ui/ContactButton';
+import { openSiteSearch } from '../SiteSearch';
 import { primaryNavigation } from '../../data/navigation';
 import { useDialogBehavior } from '../../hooks/useDialogBehavior';
 import { cn } from '../../lib/cn';
@@ -45,7 +46,19 @@ export function MobileMenu({ isOpen, onClose, triggerRef }: MobileMenuProps) {
           </button>
         </div>
 
-        <nav aria-label="Mobil site menüsü" className="mt-8 flex flex-col gap-1">
+        <button
+          type="button"
+          onClick={() => {
+            onClose();
+            openSiteSearch();
+          }}
+          className="mt-6 flex items-center gap-2.5 rounded-full border border-border-light px-4 py-3 text-left text-[15px] text-ink/60 transition-colors hover:border-blue hover:text-blue"
+        >
+          <Search aria-hidden="true" className="h-4 w-4 shrink-0" />
+          Hizmet veya ilçe ara
+        </button>
+
+        <nav aria-label="Mobil site menüsü" className="mt-6 flex flex-col gap-1">
           {primaryNavigation.map((item) => {
             if (item.children) {
               const isExpanded = expandedLabel === item.label;

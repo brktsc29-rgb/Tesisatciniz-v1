@@ -14,6 +14,12 @@ const DistrictPage = lazy(() =>
 const NotFoundPage = lazy(() =>
   import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })),
 );
+const BlogListPage = lazy(() =>
+  import('./pages/BlogListPage').then((m) => ({ default: m.BlogListPage })),
+);
+const BlogPostPage = lazy(() =>
+  import('./pages/BlogPostPage').then((m) => ({ default: m.BlogPostPage })),
+);
 
 function App() {
   return (
@@ -47,6 +53,23 @@ function App() {
                   }
                 />
               ))}
+
+              <Route
+                path="/blog"
+                element={
+                  <Suspense fallback={null}>
+                    <BlogListPage />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/blog/:slug"
+                element={
+                  <Suspense fallback={null}>
+                    <BlogPostPage />
+                  </Suspense>
+                }
+              />
 
               <Route
                 path="*"

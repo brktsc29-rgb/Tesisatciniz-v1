@@ -23,6 +23,7 @@ export const services: Service[] = [
     intro:
       'Su kaçağı, fark edilmesi zaman alabilen ancak ilerledikçe yapıya zarar verebilen bir tesisat sorunudur. Belirtiler değerlendirildikten sonra, kaçağın olası kaynağına yönelik kontrollü bir müdahale planlanır ve işleme başlanmadan önce durum hakkında bilgi verilir.',
     image: {
+      src: '/images/services/leak/hero.jpg',
       alt: 'Su kaçağı kontrolü yapan tesisatçı',
       placeholderIcon: Droplets,
       placeholderTone: 'navy',
@@ -103,6 +104,7 @@ export const services: Service[] = [
     intro:
       'Giderlerdeki tıkanıklık; yavaş akma, geri taşma veya kötü koku gibi belirtilerle kendini gösterir. Tıkanıklığın olası nedeni değerlendirildikten sonra, boruya zarar vermeyi önceleyen bir yöntemle müdahale edilir.',
     image: {
+      src: '/images/services/drain/hero.jpg',
       alt: 'Gider tıkanıklığına müdahale eden tesisatçı',
       placeholderIcon: Waves,
       placeholderTone: 'blue',
@@ -182,6 +184,7 @@ export const services: Service[] = [
     intro:
       'Klozet ve rezervuar arızaları genellikle şamandıra, iç takım veya bağlantı noktalarındaki aşınmadan kaynaklanır. Arıza yerinde değerlendirilir ve gerekirse parça değişimi öncesinde malzeme ile işçilik bilgisi paylaşılır.',
     image: {
+      src: '/images/services/toilet/hero.jpg',
       alt: 'Klozet ve rezervuar tamiri yapan tesisatçı',
       placeholderIcon: Toilet,
       placeholderTone: 'teal',
@@ -261,6 +264,7 @@ export const services: Service[] = [
     intro:
       'Musluk ve batarya arızaları çoğunlukla iç conta aşınması veya bağlantı gevşemesinden kaynaklanır. Eski parça yerinde kontrol edilir; onarım mı yoksa değişim mi gerektiği ve malzeme seçimi müşteriye açıklanır.',
     image: {
+      src: '/images/services/tap/hero.jpg',
       alt: 'Musluk ve batarya değişimi yapan tesisatçı',
       placeholderIcon: Droplet,
       placeholderTone: 'blue',
@@ -339,6 +343,7 @@ export const services: Service[] = [
     intro:
       'Lavabo ve evye tıkanıklıkları genellikle yağ, sabun veya yemek kalıntılarının sifon bölgesinde birikmesinden kaynaklanır. Tıkanıklığın konumu değerlendirildikten sonra uygun yöntemle müdahale edilir.',
     image: {
+      src: '/images/services/sink/hero.jpg',
       alt: 'Lavabo ve evye tıkanıklığı açan tesisatçı',
       placeholderIcon: Bath,
       placeholderTone: 'teal',
@@ -417,6 +422,7 @@ export const services: Service[] = [
     intro:
       'Su tesisatındaki genel arızalar; bağlantı noktaları, flex hortumlar, ara musluklar veya sıcak-soğuk su hatlarında ortaya çıkabilir. Arıza yerinde değerlendirilir ve gerekli onarım ile küçük tesisat yenilemeleri için işlem ve malzeme bilgisi önceden paylaşılır.',
     image: {
+      src: '/images/services/repair/hero.jpg',
       alt: 'Su tesisatı onarımı yapan tesisatçı',
       placeholderIcon: Wrench,
       placeholderTone: 'navy',
@@ -497,6 +503,7 @@ export const services: Service[] = [
     intro:
       'Kombi montajı; mevcut tesisatın uyumluluğunun değerlendirilmesini, su ve kalorifer tesisatı bağlantılarının kontrolünü kapsar. Baca bağlantısı, gaz hattı ve ilk çalıştırma gibi işlemler cihaz markasına ve ilgili mevzuata bağlı olarak yetkili kuruluş veya marka servisi gerektirebilir.',
     image: {
+      src: '/images/services/combi/hero.jpg',
       alt: 'Kombi montajı yapan tesisatçı',
       placeholderIcon: Flame,
       placeholderTone: 'blue',

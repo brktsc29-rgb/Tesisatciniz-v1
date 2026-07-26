@@ -3,6 +3,14 @@ import { MapPinOff } from 'lucide-react';
 import { SEOHead } from '../components/seo/SEOHead';
 import { Container } from '../components/ui/Container';
 import { ContactButton } from '../components/ui/ContactButton';
+import { SectionHeading } from '../components/ui/SectionHeading';
+import { ServiceCard } from '../components/ui/ServiceCard';
+import { DistrictCard } from '../components/ui/DistrictCard';
+import { InlineSiteSearch } from '../components/SiteSearch';
+import { services } from '../data/services';
+import { districts } from '../data/districts';
+
+const POPULAR_SERVICES = services.slice(0, 4);
 
 export function NotFoundPage() {
   return (
@@ -28,6 +36,10 @@ export function NotFoundPage() {
             Bağlantı değişmiş veya sayfa kaldırılmış olabilir.
           </p>
 
+          <div className="w-full max-w-lg">
+            <InlineSiteSearch />
+          </div>
+
           <div className="mt-2 flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center">
             <Link
               to="/"
@@ -42,6 +54,34 @@ export function NotFoundPage() {
               Hizmetleri İncele
             </Link>
             <ContactButton kind="whatsapp" label="WhatsApp" />
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-blue/5 py-16 md:py-20" aria-labelledby="notfound-services-heading">
+        <Container className="flex flex-col gap-10">
+          <SectionHeading id="notfound-services-heading" title="Popüler hizmetler" />
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {POPULAR_SERVICES.map((service) => (
+              <ServiceCard key={service.slug} service={service} />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 md:py-20" aria-labelledby="notfound-districts-heading">
+        <Container className="flex flex-col gap-10">
+          <SectionHeading id="notfound-districts-heading" title="Hizmet bölgeleri" />
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            {districts.map((district) => (
+              <DistrictCard
+                key={district.slug}
+                slug={district.slug}
+                name={district.name}
+                description={district.intro}
+                href={district.path}
+              />
+            ))}
           </div>
         </Container>
       </section>
