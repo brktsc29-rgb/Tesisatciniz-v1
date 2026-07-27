@@ -13,7 +13,7 @@ export const seo = {
   defaultTitle: 'Tesisatçınız | Kağıthane, Şişli ve Beşiktaş Su Tesisatçısı',
   defaultDescription:
     'Kağıthane, Şişli ve Beşiktaş’ta su kaçağı, gider tıkanıklığı, klozet, musluk ve tesisat onarımı için servis müsaitliğini öğrenin.',
-  defaultOgImage: '/og-image.svg',
-  twitterImage: '/og-image.svg',
+  defaultOgImage: '/og-image.png',
+  twitterImage: '/og-image.png',
   canonicalBase: getAbsoluteUrl('/'),
 } as const;

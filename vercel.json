@@ -1,0 +1,25 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.tesisatciniz.com" }],
+      "destination": "https://tesisatciniz.com/$1",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/su-kacagi-tespiti", "destination": "/index.html" },
+    { "source": "/gider-tikanikligi-acma", "destination": "/index.html" },
+    { "source": "/klozet-rezervuar-tamiri", "destination": "/index.html" },
+    { "source": "/musluk-batarya-degisimi", "destination": "/index.html" },
+    { "source": "/lavabo-evye-tikanikligi", "destination": "/index.html" },
+    { "source": "/tesisat-ariza-onarim", "destination": "/index.html" },
+    { "source": "/kombi-montaji", "destination": "/index.html" },
+    { "source": "/kagithane-su-tesisatcisi", "destination": "/index.html" },
+    { "source": "/sisli-su-tesisatcisi", "destination": "/index.html" },
+    { "source": "/besiktas-su-tesisatcisi", "destination": "/index.html" },
+    { "source": "/blog", "destination": "/index.html" },
+    { "source": "/blog/:slug", "destination": "/index.html" }
+  ]
+}

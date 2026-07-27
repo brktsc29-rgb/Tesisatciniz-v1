@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { getAbsoluteUrl } from '../../lib/url';
 import { seo } from '../../config/seo';
@@ -28,6 +29,14 @@ export function SEOHead({
   const canonicalUrl = getAbsoluteUrl(canonical);
   const ogImageUrl = getAbsoluteUrl(ogImage);
 
+  // index.html içindeki statik data-default etiketleri (JS çalıştırmayan
+  // bağlantı önizleme botları için) react-helmet-async tarafından otomatik
+  // kaldırılmaz — yalnızca kendi etiketlerini ekler. JS çalışan tarayıcılarda
+  // çift meta/title oluşmaması için bu etiketler mount olduğunda kaldırılır.
+  useEffect(() => {
+    document.querySelectorAll('[data-default="true"]').forEach((el) => el.remove());
+  }, []);
+
   return (
     <Helmet>
       <title>{title}</title>
@@ -39,6 +48,7 @@ export function SEOHead({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content={type} />
+      <meta property="og:site_name" content={seo.siteName} />
       <meta property="og:image" content={ogImageUrl} />
 
       <meta name="twitter:card" content="summary_large_image" />

@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#102A43" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,7 +14,31 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
       rel="stylesheet"
     />
-    <title>Tesisatçınız | Kağıthane, Şişli ve Beşiktaş Su Tesisatçısı</title>
+    <!--
+      Sayfaya özgü title/description/canonical/OG/JSON-LD, react-helmet-async
+      ile yalnızca istemci tarafında (JS çalıştıktan sonra) enjekte edilir.
+      react-helmet-async statik head etiketlerini otomatik kaldırmadığı için
+      (yalnızca kendi yönettiği etiketleri ekler/günceller), aşağıdaki
+      data-default işaretli etiketler SEOHead bileşeni mount olduğunda bir
+      kerelik bir efekt ile kaldırılır (bkz. components/seo/SEOHead.tsx) —
+      böylece JS çalışan tarayıcılarda çift etiket oluşmaz. Bu etiketler,
+      JavaScript çalıştırmayan bağlantı önizleme botları (WhatsApp, Slack,
+      bazı Twitter/Facebook tarayıcıları) için markalı bir alt sınır
+      oluşturur; bilinçli olarak canonical veya og:url eklenmez, çünkü tüm
+      rotalarda aynı (ana sayfa) değeri göstermek JS çalışmayan tarayıcılar
+      için yanıltıcı olur.
+    -->
+    <title data-default="true">Tesisatçınız | Kağıthane, Şişli ve Beşiktaş Su Tesisatçısı</title>
+    <meta data-default="true" name="description" content="Kağıthane, Şişli ve Beşiktaş’ta su kaçağı, gider tıkanıklığı, klozet, musluk ve tesisat onarımı için servis müsaitliğini öğrenin." />
+    <meta data-default="true" property="og:title" content="Tesisatçınız | Kağıthane, Şişli ve Beşiktaş Su Tesisatçısı" />
+    <meta data-default="true" property="og:description" content="Kağıthane, Şişli ve Beşiktaş’ta su kaçağı, gider tıkanıklığı, klozet, musluk ve tesisat onarımı için servis müsaitliğini öğrenin." />
+    <meta data-default="true" property="og:type" content="website" />
+    <meta data-default="true" property="og:site_name" content="Tesisatçınız" />
+    <meta data-default="true" property="og:image" content="https://tesisatciniz.com/og-image.png" />
+    <meta data-default="true" name="twitter:card" content="summary_large_image" />
+    <meta data-default="true" name="twitter:title" content="Tesisatçınız | Kağıthane, Şişli ve Beşiktaş Su Tesisatçısı" />
+    <meta data-default="true" name="twitter:description" content="Kağıthane, Şişli ve Beşiktaş’ta su kaçağı, gider tıkanıklığı, klozet, musluk ve tesisat onarımı için servis müsaitliğini öğrenin." />
+    <meta data-default="true" name="twitter:image" content="https://tesisatciniz.com/og-image.png" />
   </head>
   <body>
     <div id="root"></div>
