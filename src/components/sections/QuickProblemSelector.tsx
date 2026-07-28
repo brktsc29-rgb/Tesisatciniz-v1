@@ -10,7 +10,7 @@ export function QuickProblemSelector() {
       <Container className="flex flex-col gap-10">
         <SectionHeading id="quick-problem-heading" title="Hangi konuda yardıma ihtiyacınız var?" />
 
-        <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
+        <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
           {quickProblems.map((problem) => {
             const Icon = problem.icon;
             return (

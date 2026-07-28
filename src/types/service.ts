@@ -30,7 +30,7 @@ export interface ServiceMiniCallout {
 
 export interface Service {
   slug: string;
-  /** Route path, e.g. "/su-kacagi-tespiti" */
+  /** Route path, e.g. "/klozet-rezervuar-tamiri" */
   path: string;
   /** Homepage card / footer link title, e.g. "Su kaçağı tespiti" */
   title: string;

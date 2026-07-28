@@ -9,11 +9,6 @@ export interface SocialLink {
   url: string;
 }
 
-export interface BusinessCapabilities {
-  /** Set to true only once leak-detection equipment details are confirmed. */
-  hasLeakDetectionDevice: boolean;
-}
-
 export interface BusinessCoordinates {
   lat: number;
   lng: number;
@@ -30,7 +25,6 @@ export interface BusinessConfig {
   serviceAreas: ServiceArea[];
   workingMessage: string;
   socialLinks: SocialLink[];
-  capabilities: BusinessCapabilities;
 
   /**
    * Aşağıdaki alanlar Faz 2.2 kapsamında eklendi; doğrulanana kadar boş

@@ -8,7 +8,7 @@ import type { StructuredData } from '../../types/seo';
 interface SEOHeadProps {
   title: string;
   description: string;
-  /** Site-relative path, e.g. "/su-kacagi-tespiti". Converted to an absolute canonical URL. */
+  /** Site-relative path, e.g. "/klozet-rezervuar-tamiri". Converted to an absolute canonical URL. */
   canonical: string;
   /** Site-relative image path. Defaults to the shared OG placeholder. */
   ogImage?: string;

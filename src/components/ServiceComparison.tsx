@@ -11,7 +11,7 @@ interface ComparisonRow {
 
 const COMPARISON_ROWS: ComparisonRow[] = [
   { symptom: 'Musluk damlatıyor', serviceSlug: 'musluk-batarya-degisimi' },
-  { symptom: 'Su faturası yükseldi', serviceSlug: 'su-kacagi-tespiti' },
+  { symptom: 'Tesisatta başka bir arıza var', serviceSlug: 'tesisat-ariza-onarim' },
   { symptom: 'Lavabo gitmiyor', serviceSlug: 'lavabo-evye-tikanikligi' },
   { symptom: 'Klozet taşıyor', serviceSlug: 'klozet-rezervuar-tamiri' },
 ];

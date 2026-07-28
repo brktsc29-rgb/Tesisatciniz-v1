@@ -49,10 +49,6 @@ export const business: BusinessConfig = {
 
   socialLinks: [],
 
-  capabilities: {
-    hasLeakDetectionDevice: false,
-  },
-
   logo: '/brand/logo.svg',
   workingHours: [],
   googleBusinessUrl: '',

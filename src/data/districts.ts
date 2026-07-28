@@ -16,10 +16,10 @@ export const districts: District[] = [
     name: 'Kağıthane',
     seoTitle: 'Kağıthane Su Tesisatçısı | Tesisatçınız',
     metaDescription:
-      'Kağıthane ve mahallelerinde su kaçağı, gider tıkanıklığı, klozet, musluk, kombi montajı ve tesisat onarım talepleri için servis müsaitliğini öğrenin.',
+      'Kağıthane ve mahallelerinde klozet, musluk, kombi montajı ve tesisat onarım talepleri için servis müsaitliğini öğrenin.',
     heroTitle: 'Kağıthane Su Tesisatçısı',
     heroDescription:
-      'Kağıthane genelinde su kaçağı, gider tıkanıklığı, klozet arızası ve tesisat onarımı ihtiyaçlarında servis durumunu öğrenmek için arayın veya fotoğraf gönderin.',
+      'Kağıthane genelinde klozet arızası, musluk ve kombi montajı ile tesisat onarımı ihtiyaçlarında servis durumunu öğrenmek için arayın veya fotoğraf gönderin.',
     intro: areaDescription('kagithane'),
     neighborhoods: [
       'Çağlayan',
@@ -79,7 +79,7 @@ export const districts: District[] = [
     name: 'Şişli',
     seoTitle: 'Şişli Su Tesisatçısı | Tesisatçınız',
     metaDescription:
-      'Şişli ve çevresinde su kaçağı, tıkanıklık, klozet, musluk, kombi montajı ve tesisat onarımı için servis bilgisi alın.',
+      'Şişli ve çevresinde klozet, musluk, kombi montajı ve tesisat onarımı için servis bilgisi alın.',
     heroTitle: 'Şişli Su Tesisatçısı',
     heroDescription:
       'Şişli ve çevresindeki semtlerde su tesisatı arıza, tıkanıklık ve onarım taleplerinde servis müsaitliğini öğrenmek için arayın veya WhatsApp\'tan fotoğraf gönderin.',
@@ -142,7 +142,7 @@ export const districts: District[] = [
     name: 'Beşiktaş',
     seoTitle: 'Beşiktaş Su Tesisatçısı | Tesisatçınız',
     metaDescription:
-      'Beşiktaş, Etiler, Levent, Gayrettepe ve çevresinde tesisat arıza, tıkanıklık, kaçak ve kombi montajı için servis müsaitliğini öğrenin.',
+      'Beşiktaş, Etiler, Levent, Gayrettepe ve çevresinde tesisat arıza, klozet, musluk ve kombi montajı için servis müsaitliğini öğrenin.',
     heroTitle: 'Beşiktaş Su Tesisatçısı',
     heroDescription:
       'Beşiktaş ve çevresinde su tesisatı arıza, kaçak ve tıkanıklık ihtiyaçlarında temiz ve kontrollü bir müdahale için servis müsaitliğini öğrenin.',

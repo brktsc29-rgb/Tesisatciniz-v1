@@ -23,8 +23,9 @@ export function HeroSection() {
             <span className="text-blue">güvenilir ve kontrollü müdahale</span>
           </h1>
           <p className="text-base leading-snug text-ink/80 md:leading-relaxed md:text-lg">
-            Su kaçağı, gider tıkanıklığı, klozet arızası ve diğer tesisat sorunlarında servis
-            durumunu öğrenmek için arayın veya sorunun fotoğrafını WhatsApp’tan gönderin.
+            Klozet arızası, musluk ve batarya sorunları, kombi montajı ve diğer tesisat
+            sorunlarında servis durumunu öğrenmek için arayın veya sorunun fotoğrafını
+            WhatsApp’tan gönderin.
           </p>
         </div>
 
