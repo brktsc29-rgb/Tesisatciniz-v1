@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { getAbsoluteUrl } from '../../lib/url';
 import { seo } from '../../config/seo';
+import { trackPageView } from '../../lib/analytics';
 import type { StructuredData } from '../../types/seo';
 
 interface SEOHeadProps {
@@ -36,6 +37,15 @@ export function SEOHead({
   useEffect(() => {
     document.querySelectorAll('[data-default="true"]').forEach((el) => el.remove());
   }, []);
+
+  // GA4 sayfa görüntüleme takibi: document.title'ı DOM'dan okumak yerine
+  // (react-helmet-async'in title commit'i istemci-taraflı geçişlerde
+  // ~100-300ms ertelenebiliyor, DOM'dan okuma yarış durumuna yol açar)
+  // bu bileşenin zaten senkron olarak sahip olduğu title/canonical
+  // prop'ları doğrudan kullanılır.
+  useEffect(() => {
+    trackPageView(canonical, title);
+  }, [canonical, title]);
 
   return (
     <Helmet>
