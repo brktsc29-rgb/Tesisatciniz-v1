@@ -1,15 +1,6 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/klozet-rezervuar-tamiri", "destination": "/index.html" },
-    { "source": "/musluk-batarya-degisimi", "destination": "/index.html" },
-    { "source": "/lavabo-evye-tikanikligi", "destination": "/index.html" },
-    { "source": "/tesisat-ariza-onarim", "destination": "/index.html" },
-    { "source": "/kombi-montaji", "destination": "/index.html" },
-    { "source": "/kagithane-su-tesisatcisi", "destination": "/index.html" },
-    { "source": "/sisli-su-tesisatcisi", "destination": "/index.html" },
-    { "source": "/besiktas-su-tesisatcisi", "destination": "/index.html" },
-    { "source": "/blog", "destination": "/index.html" },
-    { "source": "/blog/:slug", "destination": "/index.html" }
+    { "source": "/blog", "destination": "/app-shell.html" },
+    { "source": "/blog/:slug", "destination": "/app-shell.html" }
   ]
 }

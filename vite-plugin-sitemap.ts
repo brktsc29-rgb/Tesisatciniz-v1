@@ -14,10 +14,19 @@ import { districts } from './src/data/districts';
  * bir tercihtir.
  */
 export function sitemapPlugin(): Plugin {
+  let isSsrBuild = false;
+
   return {
     name: 'generate-sitemap',
     apply: 'build',
+    configResolved(config) {
+      isSsrBuild = Boolean(config.build.ssr);
+    },
     closeBundle() {
+      // entry-server.tsx'in prerender için ayrı SSR build'inde (dist-server/)
+      // tekrar çalışmasın; yalnızca asıl istemci build'inde (dist/) üretilir.
+      if (isSsrBuild) return;
+
       const paths = ['/', ...services.map((s) => s.path), ...districts.map((d) => d.path)];
 
       const urlEntries = paths
