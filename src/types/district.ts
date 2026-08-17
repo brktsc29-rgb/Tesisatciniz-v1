@@ -1,10 +1,17 @@
 import type { FaqItem } from './content';
 
+export interface DistrictCoordinates {
+  lat: number;
+  lng: number;
+}
+
 export interface District {
   slug: string;
   /** Route path, e.g. "/kagithane-su-tesisatcisi" */
   path: string;
   name: string;
+  /** İlçe merkezinin yaklaşık koordinatları — hero bölümündeki harita için kullanılır. */
+  coordinates: DistrictCoordinates;
   seoTitle: string;
   metaDescription: string;
   heroTitle: string;

@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { ShieldCheck } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { Container } from '../ui/Container';
@@ -15,7 +16,10 @@ interface PageHeroProps {
   eyebrow: string;
   title: string;
   description: string;
-  image: PageHeroImage;
+  /** Standart ikon tabanlı illüstrasyon/fotoğraf. `imageSlot` verilirse yok sayılır. */
+  image?: PageHeroImage;
+  /** İkon illüstrasyonu yerine tamamen özel bir görsel alanı (örn. harita embed'i). */
+  imageSlot?: ReactNode;
   /** Sağlanırsa CTA'ların altında küçük bir bilgi kutusu gösterilir. */
   infoBoxText?: string;
 }
@@ -25,7 +29,7 @@ interface PageHeroProps {
  * kendi HeroSection'ı değiştirilmez; bu bileşen yalnızca yeni sayfa
  * türleri için paylaşılan bir düzendir.
  */
-export function PageHero({ eyebrow, title, description, image, infoBoxText }: PageHeroProps) {
+export function PageHero({ eyebrow, title, description, image, imageSlot, infoBoxText }: PageHeroProps) {
   return (
     <section className="bg-gradient-to-b from-white to-surface py-8 md:py-16">
       <Container className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center md:gap-x-12 md:gap-y-8">
@@ -40,18 +44,21 @@ export function PageHero({ eyebrow, title, description, image, infoBoxText }: Pa
         </div>
 
         <div className="md:col-start-2 md:row-span-2 md:row-start-1">
-          <ResponsiveImage
-            src={image.src}
-            alt={image.alt}
-            width={720}
-            height={480}
-            rounded="2xl"
-            loading="eager"
-            fetchPriority="high"
-            placeholderIcon={image.placeholderIcon}
-            placeholderTone={image.placeholderTone}
-            className="w-full"
-          />
+          {imageSlot ??
+            (image ? (
+              <ResponsiveImage
+                src={image.src}
+                alt={image.alt}
+                width={720}
+                height={480}
+                rounded="2xl"
+                loading="eager"
+                fetchPriority="high"
+                placeholderIcon={image.placeholderIcon}
+                placeholderTone={image.placeholderTone}
+                className="w-full"
+              />
+            ) : null)}
         </div>
 
         <div className="flex flex-col gap-3 md:col-start-1 md:row-start-2">

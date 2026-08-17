@@ -14,6 +14,7 @@ export const districts: District[] = [
     slug: 'kagithane',
     path: '/kagithane-su-tesisatcisi',
     name: 'Kağıthane',
+    coordinates: { lat: 41.0819, lng: 28.9647 },
     seoTitle: 'Kağıthane Su Tesisatçısı | Tesisatçınız',
     metaDescription:
       'Kağıthane ve mahallelerinde klozet, musluk, kombi montajı ve tesisat onarım talepleri için servis müsaitliğini öğrenin.',
@@ -77,6 +78,7 @@ export const districts: District[] = [
     slug: 'sisli',
     path: '/sisli-su-tesisatcisi',
     name: 'Şişli',
+    coordinates: { lat: 41.0602, lng: 28.9877 },
     seoTitle: 'Şişli Su Tesisatçısı | Tesisatçınız',
     metaDescription:
       'Şişli ve çevresinde klozet, musluk, kombi montajı ve tesisat onarımı için servis bilgisi alın.',
@@ -140,6 +142,7 @@ export const districts: District[] = [
     slug: 'besiktas',
     path: '/besiktas-su-tesisatcisi',
     name: 'Beşiktaş',
+    coordinates: { lat: 41.0430, lng: 29.0061 },
     seoTitle: 'Beşiktaş Su Tesisatçısı | Tesisatçınız',
     metaDescription:
       'Beşiktaş, Etiler, Levent, Gayrettepe ve çevresinde tesisat arıza, klozet, musluk ve kombi montajı için servis müsaitliğini öğrenin.',

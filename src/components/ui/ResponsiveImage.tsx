@@ -11,7 +11,7 @@ interface ResponsiveImageProps {
   rounded?: '2xl' | 'xl';
   loading?: 'lazy' | 'eager';
   fetchPriority?: 'high' | 'low' | 'auto';
-  /** Gerçek görsel eklenene kadar veya yüklenemediğinde gösterilecek ikon tabanlı yer tutucu. */
+  /** Gerçek fotoğraf yoksa (veya yüklenemezse) gösterilecek ikon tabanlı illüstrasyon. */
   placeholderIcon?: LucideIcon;
   placeholderTone?: 'navy' | 'blue' | 'teal';
 }
@@ -64,14 +64,29 @@ export function ResponsiveImage({
       role="img"
       aria-label={alt}
       className={cn(
-        'flex items-center justify-center bg-gradient-to-br',
+        'relative flex items-center justify-center overflow-hidden bg-gradient-to-br',
         toneClasses[placeholderTone],
         roundedClass,
         className,
       )}
       style={{ aspectRatio: `${width} / ${height}` }}
     >
-      {Icon ? <Icon aria-hidden="true" className="h-1/4 w-1/4 min-h-8 min-w-8 text-white/85" /> : null}
+      <div
+        className="absolute -top-1/4 -left-1/4 h-1/2 w-1/2 rounded-full bg-white/10 blur-2xl"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute -right-1/4 -bottom-1/4 h-1/2 w-1/2 rounded-full bg-white/10 blur-2xl"
+        aria-hidden="true"
+      />
+      {Icon ? (
+        <>
+          <Icon aria-hidden="true" className="absolute h-2/3 w-2/3 -rotate-12 text-white/10" />
+          <span className="relative flex h-1/3 w-1/3 min-h-16 min-w-16 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/25 backdrop-blur-sm">
+            <Icon aria-hidden="true" className="h-1/2 w-1/2 text-white" />
+          </span>
+        </>
+      ) : null}
     </div>
   );
 }

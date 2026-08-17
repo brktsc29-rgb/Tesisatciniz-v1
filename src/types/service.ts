@@ -11,7 +11,7 @@ export interface ServiceSymptom {
 }
 
 export interface ServiceImage {
-  /** Beklenen görsel yolu (public/images/services/**). Dosya henüz yoksa ResponsiveImage sessizce placeholder'a döner. */
+  /** Gerçek bir fotoğraf sağlanırsa public/images/services/** altındaki yolu; yoksa ikon tabanlı illüstrasyon gösterilir. */
   src?: string;
   alt: string;
   placeholderIcon: LucideIcon;

@@ -1,4 +1,3 @@
-import { MapPinned } from 'lucide-react';
 import { SEOHead } from '../components/seo/SEOHead';
 import { Breadcrumbs } from '../components/seo/Breadcrumbs';
 import { PageHero } from '../components/sections/PageHero';
@@ -9,6 +8,7 @@ import { NeighborhoodChips } from '../components/ui/NeighborhoodChips';
 import { FaqAccordion } from '../components/ui/FaqAccordion';
 import { ServiceCard } from '../components/ui/ServiceCard';
 import { DistrictCard } from '../components/ui/DistrictCard';
+import { DistrictMap } from '../components/ui/DistrictMap';
 import { FinalCTA } from '../components/sections/FinalCTA';
 import { services } from '../data/services';
 import { districts } from '../data/districts';
@@ -23,15 +23,11 @@ import { ROUTES } from '../config/routes';
 import type { District } from '../types/district';
 import type { BreadcrumbTrailItem } from '../types/seo';
 
-const IMAGE_TONES = ['navy', 'blue', 'teal'] as const;
-
 interface DistrictPageProps {
   district: District;
 }
 
 export function DistrictPage({ district }: DistrictPageProps) {
-  const districtIndex = districts.findIndex((item) => item.slug === district.slug);
-  const imageTone = IMAGE_TONES[districtIndex % IMAGE_TONES.length] ?? 'navy';
   const nearbyDistricts = districts.filter((item) => item.slug !== district.slug);
 
   const breadcrumbItems: BreadcrumbTrailItem[] = [
@@ -64,12 +60,7 @@ export function DistrictPage({ district }: DistrictPageProps) {
         eyebrow="Hizmet Bölgesi"
         title={district.heroTitle}
         description={district.heroDescription}
-        image={{
-          src: `/images/districts/${district.slug}/hero.jpg`,
-          alt: `${district.name} hizmet bölgesi`,
-          placeholderIcon: MapPinned,
-          placeholderTone: imageTone,
-        }}
+        imageSlot={<DistrictMap name={district.name} coordinates={district.coordinates} className="w-full" />}
       />
 
       <section className="py-16 md:py-20">
