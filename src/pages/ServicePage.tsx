@@ -86,6 +86,14 @@ export function ServicePage({ service }: ServicePageProps) {
               <p className="mt-2 text-sm leading-relaxed text-ink/80 md:text-[15px]">
                 {service.infoBox.description}
               </p>
+              {service.infoBox.action ? (
+                <a
+                  href={service.infoBox.action.href}
+                  className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-orange px-5 text-sm font-bold text-white transition-colors hover:bg-orange/90"
+                >
+                  {service.infoBox.action.label}
+                </a>
+              ) : null}
             </div>
           </Container>
         </section>

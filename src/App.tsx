@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { ContactNoticeProvider } from './hooks/useContactNotice';
+import { ContactNoticeProvider } from './hooks/ContactNoticeProvider';
 import { AppRoutes } from './AppRoutes';
 
 function App() {

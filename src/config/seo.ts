@@ -12,7 +12,7 @@ export const seo = {
   brandName: business.businessName,
   defaultTitle: 'Tesisatçınız | Kağıthane, Şişli ve Beşiktaş Su Tesisatçısı',
   defaultDescription:
-    'Kağıthane, Şişli ve Beşiktaş’ta klozet, musluk, kombi montajı ve tesisat onarımı için servis müsaitliğini öğrenin.',
+    'Kağıthane, Şişli ve Beşiktaş’ta su ve doğalgaz tesisatı, klozet, musluk, kombi montajı ve onarım hizmetleri için servis bilgisi alın.',
   defaultOgImage: '/og-image.png',
   twitterImage: '/og-image.png',
   canonicalBase: getAbsoluteUrl('/'),

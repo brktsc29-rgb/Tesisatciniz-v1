@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { X, ChevronDown, Search } from 'lucide-react';
 import { Logo } from '../ui/Logo';
 import { ContactButton } from '../ui/ContactButton';
-import { openSiteSearch } from '../SiteSearch';
+import { openSiteSearch } from '../../lib/siteSearchEvents';
 import { primaryNavigation } from '../../data/navigation';
 import { useDialogBehavior } from '../../hooks/useDialogBehavior';
 import { cn } from '../../lib/cn';
@@ -25,7 +25,7 @@ export function MobileMenu({ isOpen, onClose, triggerRef }: MobileMenuProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 md:hidden">
+    <div className="fixed inset-0 z-50 lg:hidden">
       <div className="absolute inset-0 bg-navy/40" aria-hidden="true" />
       <div
         ref={panelRef}
@@ -88,7 +88,11 @@ export function MobileMenu({ isOpen, onClose, triggerRef }: MobileMenuProps) {
                       isExpanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]',
                     )}
                   >
-                    <div className="flex flex-col gap-0.5 overflow-hidden pl-3">
+                    <div
+                      aria-hidden={!isExpanded}
+                      inert={!isExpanded}
+                      className="flex flex-col gap-0.5 overflow-hidden pl-3"
+                    >
                       {item.children.map((child) => {
                         const isActive = child.href === location.pathname;
                         return (

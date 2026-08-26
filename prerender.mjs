@@ -16,7 +16,9 @@ const template = readFileSync(templatePath, 'utf-8');
 // kopyalanır.
 writeFileSync(join(distDir, 'app-shell.html'), template, 'utf-8');
 
-const { render, PRERENDER_ROUTES } = await import('./dist-server/entry-server.js');
+const { render, PRERENDER_ROUTES, NOT_FOUND_ROUTE } = await import(
+  './dist-server/entry-server.js'
+);
 
 /**
  * React 19'un yerleşik document-metadata hoisting özelliği, render
@@ -56,6 +58,7 @@ function buildPage(hoistedHead, body) {
 
 function outputPathFor(route) {
   if (route === '/') return join(distDir, 'index.html');
+  if (route === NOT_FOUND_ROUTE) return join(distDir, '404.html');
   return join(distDir, route.replace(/^\//, ''), 'index.html');
 }
 

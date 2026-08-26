@@ -1,13 +1,7 @@
-import { createContext, useCallback, useContext, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { theme } from '../config/theme';
-
-interface ContactNoticeContextValue {
-  message: string | null;
-  showNotice: (message: string) => void;
-}
-
-const ContactNoticeContext = createContext<ContactNoticeContextValue | null>(null);
+import { ContactNoticeContext } from './useContactNotice';
 
 const NOTICE_DURATION_MS = theme.duration.toast;
 
@@ -28,12 +22,4 @@ export function ContactNoticeProvider({ children }: { children: ReactNode }) {
   const value = useMemo(() => ({ message, showNotice }), [message, showNotice]);
 
   return <ContactNoticeContext.Provider value={value}>{children}</ContactNoticeContext.Provider>;
-}
-
-export function useContactNotice(): ContactNoticeContextValue {
-  const ctx = useContext(ContactNoticeContext);
-  if (!ctx) {
-    throw new Error('useContactNotice, ContactNoticeProvider içinde kullanılmalıdır.');
-  }
-  return ctx;
 }

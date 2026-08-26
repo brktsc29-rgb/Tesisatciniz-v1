@@ -3,7 +3,7 @@ import { renderToPipeableStream } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Writable } from 'node:stream';
-import { ContactNoticeProvider } from './hooks/useContactNotice';
+import { ContactNoticeProvider } from './hooks/ContactNoticeProvider';
 import { AppRoutes } from './AppRoutes';
 import { services } from './data/services';
 import { districts } from './data/districts';
@@ -17,7 +17,10 @@ export const PRERENDER_ROUTES: string[] = [
   ROUTES.home,
   ...services.map((service) => service.path),
   ...districts.map((district) => district.path),
+  ROUTES.notFound,
 ];
+
+export const NOT_FOUND_ROUTE = ROUTES.notFound;
 
 /**
  * Build-time statik ön render (SSG) için sunucu tarafı giriş noktası.

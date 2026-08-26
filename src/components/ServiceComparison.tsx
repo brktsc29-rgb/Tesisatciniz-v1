@@ -14,6 +14,12 @@ const COMPARISON_ROWS: ComparisonRow[] = [
   { symptom: 'Tesisatta başka bir arıza var', serviceSlug: 'tesisat-ariza-onarim' },
   { symptom: 'Lavabo gitmiyor', serviceSlug: 'lavabo-evye-tikanikligi' },
   { symptom: 'Klozet taşıyor', serviceSlug: 'klozet-rezervuar-tamiri' },
+  { symptom: 'Gömme rezervuar su kaçırıyor', serviceSlug: 'gomme-rezervuar-tamiri' },
+  { symptom: 'Kombi montajı gerekiyor', serviceSlug: 'kombi-montaji' },
+  {
+    symptom: 'Doğalgaz tesisatında kaçak şüphesi var',
+    serviceSlug: 'dogalgaz-tesisati-gaz-kacagi-tespiti',
+  },
 ];
 
 interface ServiceComparisonProps {

@@ -31,6 +31,7 @@ export function HeroSection() {
 
         <div className="md:col-start-2 md:row-span-2 md:row-start-1">
           <ResponsiveImage
+            src="/images/hero-tesisatci.jpg"
             alt="Su tesisatı arızasında çalışan tesisatçı ustası"
             width={720}
             height={480}

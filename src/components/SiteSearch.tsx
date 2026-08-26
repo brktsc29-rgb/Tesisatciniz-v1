@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Search, SearchX, X } from 'lucide-react';
 import { useDialogBehavior } from '../hooks/useDialogBehavior';
 import { cn } from '../lib/cn';
+import { OPEN_SITE_SEARCH_EVENT } from '../lib/siteSearchEvents';
 import { services } from '../data/services';
 import { districts } from '../data/districts';
 import { EmptyState } from './ui/EmptyState';
@@ -44,68 +45,70 @@ function filterSearchIndex(query: string): SearchEntry[] {
 
 const GROUPS = ['Hizmetler', 'İlçeler'] as const;
 
-const OPEN_SEARCH_EVENT = 'tesisatciniz:open-site-search';
-
-/** Mobil menü gibi başka bileşenlerden arama modalını açmak için kullanılır. */
-export function openSiteSearch(): void {
-  window.dispatchEvent(new Event(OPEN_SEARCH_EVENT));
-}
+const MODAL_LISTBOX_ID = 'site-search-listbox';
+const INLINE_LISTBOX_ID = 'inline-site-search-listbox';
 
 interface SearchResultsListProps {
+  listboxId: string;
   results: SearchEntry[];
   activeIndex: number;
   onSelect: (entry: SearchEntry) => void;
   onHover: (index: number) => void;
 }
 
-function SearchResultsList({ results, activeIndex, onSelect, onHover }: SearchResultsListProps) {
-  if (results.length === 0) {
-    return (
-      <EmptyState
-        icon={SearchX}
-        title="Sonuç bulunamadı"
-        description="Farklı bir hizmet veya ilçe adıyla tekrar aramayı deneyin."
-      />
-    );
-  }
-
+function SearchResultsList({
+  listboxId,
+  results,
+  activeIndex,
+  onSelect,
+  onHover,
+}: SearchResultsListProps) {
   return (
-    <div role="listbox" aria-label="Arama sonuçları">
-      {GROUPS.map((group) => {
-        const groupResults = results.filter((entry) => entry.group === group);
-        if (groupResults.length === 0) return null;
+    <div id={listboxId} role="listbox" aria-label="Arama sonuçları">
+      {results.length === 0 ? (
+        <EmptyState
+          icon={SearchX}
+          title="Sonuç bulunamadı"
+          description="Farklı bir hizmet veya ilçe adıyla tekrar aramayı deneyin."
+        />
+      ) : (
+        GROUPS.map((group) => {
+          const groupResults = results.filter((entry) => entry.group === group);
+          if (groupResults.length === 0) return null;
 
-        return (
-          <div key={group} className="mb-1">
-            <p className="px-4 pt-3 pb-1 text-xs font-bold tracking-wide text-ink/50 uppercase">
-              {group}
-            </p>
-            {groupResults.map((entry) => {
-              const globalIndex = results.indexOf(entry);
-              const isActive = globalIndex === activeIndex;
-              return (
-                <button
-                  key={entry.path}
-                  type="button"
-                  role="option"
-                  aria-selected={isActive}
-                  onMouseEnter={() => onHover(globalIndex)}
-                  onClick={() => onSelect(entry)}
-                  className={cn(
-                    'flex w-full flex-col items-start gap-0.5 px-4 py-2.5 text-left transition-colors',
-                    isActive ? 'bg-blue/10' : 'hover:bg-surface',
-                  )}
-                >
-                  <span className="text-[15px] font-semibold text-navy">{entry.label}</span>
-                  {entry.description ? (
-                    <span className="truncate text-xs text-ink/60">{entry.description}</span>
-                  ) : null}
-                </button>
-              );
-            })}
-          </div>
-        );
-      })}
+          return (
+            <div key={group} className="mb-1">
+              <p className="px-4 pt-3 pb-1 text-xs font-bold tracking-wide text-ink/50 uppercase">
+                {group}
+              </p>
+              {groupResults.map((entry) => {
+                const globalIndex = results.indexOf(entry);
+                const isActive = globalIndex === activeIndex;
+                return (
+                  <button
+                    id={`${listboxId}-option-${globalIndex}`}
+                    key={entry.path}
+                    type="button"
+                    role="option"
+                    aria-selected={isActive}
+                    onMouseEnter={() => onHover(globalIndex)}
+                    onClick={() => onSelect(entry)}
+                    className={cn(
+                      'flex w-full flex-col items-start gap-0.5 px-4 py-2.5 text-left transition-colors',
+                      isActive ? 'bg-blue/10' : 'hover:bg-surface',
+                    )}
+                  >
+                    <span className="text-[15px] font-semibold text-navy">{entry.label}</span>
+                    {entry.description ? (
+                      <span className="truncate text-xs text-ink/60">{entry.description}</span>
+                    ) : null}
+                  </button>
+                );
+              })}
+            </div>
+          );
+        })
+      )}
     </div>
   );
 }
@@ -143,13 +146,24 @@ function useSearchController(onAfterSelect?: () => void) {
 }
 
 interface SearchInputProps {
+  listboxId: string;
+  activeOptionId?: string;
+  expanded: boolean;
   query: string;
   onChange: (value: string) => void;
   onKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
   inputRef: React.RefObject<HTMLInputElement | null>;
 }
 
-function SearchInput({ query, onChange, onKeyDown, inputRef }: SearchInputProps) {
+function SearchInput({
+  listboxId,
+  activeOptionId,
+  expanded,
+  query,
+  onChange,
+  onKeyDown,
+  inputRef,
+}: SearchInputProps) {
   return (
     <div className="flex items-center gap-3 border-b border-border-light px-4 py-3">
       <Search aria-hidden="true" className="h-5 w-5 shrink-0 text-ink/40" />
@@ -158,9 +172,11 @@ function SearchInput({ query, onChange, onKeyDown, inputRef }: SearchInputProps)
         type="text"
         role="combobox"
         aria-label="Hizmet veya ilçe ara"
-        aria-expanded="true"
-        aria-controls="site-search-listbox"
+        aria-expanded={expanded}
+        aria-controls={expanded ? listboxId : undefined}
+        aria-activedescendant={expanded ? activeOptionId : undefined}
         aria-autocomplete="list"
+        aria-haspopup="listbox"
         value={query}
         onChange={(event) => onChange(event.target.value)}
         onKeyDown={onKeyDown}
@@ -177,9 +193,11 @@ export function SiteSearch() {
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
-  const { query, setQuery, activeIndex, results, select, handleKeyDown } = useSearchController(() =>
-    setIsOpen(false),
-  );
+  const { query, setQuery, activeIndex, setActiveIndex, results, select, handleKeyDown } =
+    useSearchController(() => setIsOpen(false));
+  const activeOptionId = results[activeIndex]
+    ? `${MODAL_LISTBOX_ID}-option-${activeIndex}`
+    : undefined;
 
   useDialogBehavior({ isOpen, onClose: () => setIsOpen(false), containerRef, triggerRef });
 
@@ -202,10 +220,10 @@ export function SiteSearch() {
       setIsOpen(true);
     }
     document.addEventListener('keydown', handleGlobalKeyDown);
-    window.addEventListener(OPEN_SEARCH_EVENT, handleExternalOpen);
+    window.addEventListener(OPEN_SITE_SEARCH_EVENT, handleExternalOpen);
     return () => {
       document.removeEventListener('keydown', handleGlobalKeyDown);
-      window.removeEventListener(OPEN_SEARCH_EVENT, handleExternalOpen);
+      window.removeEventListener(OPEN_SITE_SEARCH_EVENT, handleExternalOpen);
     };
   }, []);
 
@@ -248,18 +266,22 @@ export function SiteSearch() {
                 </div>
 
                 <SearchInput
+                  listboxId={MODAL_LISTBOX_ID}
+                  activeOptionId={activeOptionId}
+                  expanded
                   query={query}
                   onChange={setQuery}
                   onKeyDown={handleKeyDown}
                   inputRef={inputRef}
                 />
 
-                <div id="site-search-listbox" className="flex-1 overflow-y-auto py-2">
+                <div className="flex-1 overflow-y-auto py-2">
                   <SearchResultsList
+                    listboxId={MODAL_LISTBOX_ID}
                     results={results}
                     activeIndex={activeIndex}
                     onSelect={select}
-                    onHover={() => {}}
+                    onHover={setActiveIndex}
                   />
                 </div>
               </div>
@@ -276,13 +298,26 @@ export function InlineSiteSearch() {
   const inputRef = useRef<HTMLInputElement>(null);
   const { query, setQuery, activeIndex, setActiveIndex, results, select, handleKeyDown } =
     useSearchController();
+  const isExpanded = Boolean(query.trim());
+  const activeOptionId = results[activeIndex]
+    ? `${INLINE_LISTBOX_ID}-option-${activeIndex}`
+    : undefined;
 
   return (
     <div className="mx-auto w-full max-w-lg overflow-hidden rounded-2xl border border-border-light bg-white shadow-sm">
-      <SearchInput query={query} onChange={setQuery} onKeyDown={handleKeyDown} inputRef={inputRef} />
-      {query.trim() ? (
+      <SearchInput
+        listboxId={INLINE_LISTBOX_ID}
+        activeOptionId={activeOptionId}
+        expanded={isExpanded}
+        query={query}
+        onChange={setQuery}
+        onKeyDown={handleKeyDown}
+        inputRef={inputRef}
+      />
+      {isExpanded ? (
         <div className="max-h-72 overflow-y-auto py-2">
           <SearchResultsList
+            listboxId={INLINE_LISTBOX_ID}
             results={results}
             activeIndex={activeIndex}
             onSelect={select}

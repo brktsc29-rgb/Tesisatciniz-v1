@@ -1,10 +1,11 @@
 # Tesisatçınız
 
 Kağıthane, Şişli ve Beşiktaş bölgelerinde su tesisatı arıza, bakım ve onarım hizmeti sunan
-Tesisatçınız için mobil öncelikli, tamamen responsive ana sayfa.
+Tesisatçınız için mobil öncelikli, tamamen responsive kurumsal web sitesi.
 
-Bu aşamada yalnızca ana sayfa kapsanmıştır: ilçe/hizmet detay sayfaları, yönetim paneli,
-Supabase entegrasyonu, kullanıcı girişi ve komisyon sistemi bu aşamanın kapsamı dışındadır.
+Ana sayfanın yanında hizmet ve ilçe detay sayfaları, site içi arama, özel 404 sayfası ve
+henüz `noindex` durumundaki blog altyapısı bulunur. Yönetim paneli, Supabase entegrasyonu,
+kullanıcı girişi ve komisyon sistemi kapsam dışındadır.
 
 ## Teknoloji
 
@@ -22,6 +23,7 @@ npm install
 npm run dev       # geliştirme sunucusu
 npm run build     # tip kontrolü + production build
 npm run lint      # oxlint
+npm run test      # Vitest birim ve veri bütünlüğü testleri
 ```
 
 ## İşletme bilgileri

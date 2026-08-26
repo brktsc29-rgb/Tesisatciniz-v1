@@ -34,10 +34,10 @@ export const business: BusinessConfig = {
   businessName: 'Tesisatçınız',
   domain: 'tesisatciniz.com',
 
-  phoneDisplay: '',
-  phoneHref: '',
+  phoneDisplay: '+90 535 982 76 86',
+  phoneHref: 'tel:+905359827686',
 
-  whatsappNumber: '',
+  whatsappNumber: '905359827686',
   whatsappMessage:
     'Merhaba, tesisatciniz.com web sitesinden ulaşıyorum. Tesisat sorunum hakkında bilgi almak istiyorum.',
 

@@ -1,4 +1,4 @@
-import { Toilet, Droplet, Bath, Wrench, Flame } from 'lucide-react';
+import { Toilet, Droplet, Bath, Wrench, Flame, ShieldAlert } from 'lucide-react';
 import type { Service } from '../types/service';
 
 export const services: Service[] = [
@@ -50,7 +50,7 @@ export const services: Service[] = [
       'Ek parça gereksinimi',
       'Çalışma süresi',
     ],
-    relatedServices: ['musluk-batarya-degisimi', 'lavabo-evye-tikanikligi', 'tesisat-ariza-onarim'],
+    relatedServices: ['gomme-rezervuar-tamiri', 'musluk-batarya-degisimi', 'tesisat-ariza-onarim'],
     faq: [
       {
         id: 'klozet-parca-getiriliyor-mu',
@@ -103,6 +103,119 @@ export const services: Service[] = [
       {
         variant: 'warning',
         text: 'Klozete ıslak mendil gibi yabancı cisimler atmak, tıkanıklığa ve rezervuar arızasına yol açabilir.',
+      },
+    ],
+  },
+  {
+    slug: 'gomme-rezervuar-tamiri',
+    path: '/gomme-rezervuar-tamiri',
+    title: 'Gömme rezervuar tamiri',
+    shortTitle: 'Gömme Rezervuar',
+    cardDescription:
+      'Duvar içi gömme rezervuarlarda su kaçırma, dolmama ve kumanda paneli arızalarının giderilmesi.',
+    seoTitle: 'Gömme Rezervuar Tamiri | Tesisatçınız',
+    metaDescription:
+      'Kağıthane, Şişli ve Beşiktaş’ta gömme rezervuar tamiri; su kaçırma, dolmama ve buton arızalarında servis müsaitliği ve ücret bilgisi alın.',
+    heroTitle: 'Gömme Rezervuar Tamiri',
+    heroDescription:
+      'Duvar içi rezervuarın sürekli su alması, klozete su kaçırması, dolmaması veya kumanda panelinin çalışmaması gibi arızalarda servis müsaitliğini öğrenin.',
+    intro:
+      'Gömme rezervuar arızaları çoğunlukla doldurma grubu, boşaltma grubu, conta veya kumanda mekanizmasındaki aşınmadan kaynaklanır. Öncelikle servis kapağından erişilebilen parçalar kontrol edilir; marka ve modele uygun parça gereksinimi ile yapılacak işlem müşteriye açıklanır. Duvar ya da kaplama müdahalesi ancak servis boşluğundan erişilemeyen bir sorun tespit edilirse ayrıca değerlendirilir.',
+    image: {
+      alt: 'Gömme rezervuar tamiri yapan tesisatçı',
+      placeholderIcon: Toilet,
+      placeholderTone: 'navy',
+    },
+    icon: Toilet,
+    symptoms: [
+      { label: 'Klozet içine sürekli su akması' },
+      { label: 'Gömme rezervuarın dolmaması veya geç dolması' },
+      { label: 'Basmalı butonun çalışmaması ya da takılı kalması' },
+      { label: 'Duvar içinden sürekli su sesi gelmesi' },
+      { label: 'Servis kapağı veya bağlantı çevresinde sızıntı' },
+    ],
+    processSteps: [
+      {
+        title: 'Talebi iletin',
+        description:
+          'Arızayı telefonla veya WhatsApp’tan bildirin; mümkünse kumanda panelinin fotoğrafını paylaşın.',
+      },
+      {
+        title: 'Marka ve belirtiler değerlendirilir',
+        description:
+          'Rezervuarın marka/model bilgisi ile su kaçırma, dolmama veya buton arızası gibi belirtiler netleştirilir.',
+      },
+      {
+        title: 'Servis kapağından kontrol edilir',
+        description:
+          'Doldurma ve boşaltma grubu, contalar ve kumanda mekanizması erişim kapağından kontrol edilir.',
+      },
+      {
+        title: 'Onay sonrası onarım yapılır',
+        description:
+          'Gerekli işlem, uyumlu parça ve ücret bilgisi paylaşıldıktan sonra onayınızla onarıma başlanır.',
+      },
+    ],
+    pricingFactors: [
+      'Arızanın türü ve kapsamı',
+      'Rezervuarın marka ve modeli',
+      'Uyumlu parça gereksinimi',
+      'Servis kapağından erişim koşulları',
+      'Çalışma süresi',
+    ],
+    relatedServices: ['klozet-rezervuar-tamiri', 'tesisat-ariza-onarim', 'musluk-batarya-degisimi'],
+    faq: [
+      {
+        id: 'gomme-rezervuar-duvar-kirilir-mi',
+        question: 'Gömme rezervuar tamirinde duvar kırılır mı?',
+        answer:
+          'Çoğu iç takım, conta ve kumanda mekanizması arızası servis kapağından değerlendirilip onarılabilir. Servis boşluğundan erişilemeyen boru, gövde veya bağlantı sorunu tespit edilirse kaplama müdahalesi ihtiyacı ve kapsamı işleme başlanmadan önce açıklanır.',
+      },
+      {
+        id: 'gomme-rezervuar-parca-bulunur-mu',
+        question: 'Gömme rezervuar için uyumlu parça bulunabilir mi?',
+        answer:
+          'Parça uyumluluğu marka, model ve üretim yılına göre değişebilir. Kumanda panelinin ve mümkünse iç mekanizmanın fotoğrafı ön değerlendirmeyi kolaylaştırır; kesin parça ihtiyacı yerinde kontrolle belirlenir.',
+      },
+      {
+        id: 'gomme-rezervuar-surekli-su-akmasi',
+        question: 'Gömme rezervuar neden klozete sürekli su akıtır?',
+        answer:
+          'Bu belirti çoğunlukla boşaltma grubu contası, doldurma mekanizması veya su seviyesi ayarındaki bir sorundan kaynaklanır. Parçalar servis kapağından kontrol edilerek arızanın nedeni netleştirilir.',
+      },
+      {
+        id: 'gomme-rezervuar-buton-tamiri',
+        question: 'Çalışmayan gömme rezervuar butonu tamir edilebilir mi?',
+        answer:
+          'Kumanda paneli, itme çubukları veya pnömatik mekanizma modele göre kontrol edilir. Onarım yeterli değilse uyumlu parça seçeneği ve değişim bedeli önceden paylaşılır.',
+      },
+    ],
+    schemaName: 'Gömme Rezervuar Tamiri',
+    schemaDescription:
+      'Kağıthane, Şişli ve Beşiktaş bölgelerinde duvar içi gömme rezervuarların su kaçırma, dolmama ve kumanda paneli arızalarına yönelik tamir hizmeti.',
+    beforeServiceNotes: [
+      'Kumanda panelinin fotoğrafını ve varsa marka bilgisini paylaşmanız parça değerlendirmesini kolaylaştırır.',
+      'Suyun sürekli mi yoksa yalnızca sifon kullanıldıktan sonra mı aktığını belirtmeniz faydalı olur.',
+      'Duvar veya zeminde nem varsa alanın fotoğrafını paylaşın ve arızayı geciktirmeyin.',
+    ],
+    afterServiceTips: [
+      'İlk kullanımlarda rezervuarın dolma sesini ve klozet içindeki su akışını gözlemleyin.',
+      'Kumanda paneline sert veya çapraz baskı uygulamayın.',
+      'Tekrar su sesi, geç dolma veya sızıntı fark ederseniz durumu bildirin.',
+    ],
+    commonMistakes: [
+      'Kumanda panelini uygun olmayan aletlerle zorlayarak çıkarmaya çalışmak',
+      'Marka ve modele uymayan iç takım veya conta kullanmak',
+      'Duvar içinden gelen sürekli su sesini uzun süre görmezden gelmek',
+    ],
+    miniCallouts: [
+      {
+        variant: 'info',
+        text: 'Gömme rezervuarın iç mekanizmasına çoğunlukla kumanda panelinin arkasındaki servis kapağından erişilir.',
+      },
+      {
+        variant: 'warning',
+        text: 'Duvar veya zeminde nem görülüyorsa yalnızca buton arızası varsayılmamalı; bağlantılar da kontrol edilmelidir.',
       },
     ],
   },
@@ -361,7 +474,7 @@ export const services: Service[] = [
       'Mevcut tesisatın durumu',
       'Ek parça gereksinimi',
     ],
-    relatedServices: ['lavabo-evye-tikanikligi', 'klozet-rezervuar-tamiri', 'kombi-montaji'],
+    relatedServices: ['lavabo-evye-tikanikligi', 'kombi-montaji', 'dogalgaz-tesisati-gaz-kacagi-tespiti'],
     faq: [
       {
         id: 'tesisat-kucuk-yenileme',
@@ -466,7 +579,11 @@ export const services: Service[] = [
       'Çalışma süresi',
       'Erişim koşulları',
     ],
-    relatedServices: ['tesisat-ariza-onarim', 'musluk-batarya-degisimi', 'klozet-rezervuar-tamiri'],
+    relatedServices: [
+      'dogalgaz-tesisati-gaz-kacagi-tespiti',
+      'tesisat-ariza-onarim',
+      'musluk-batarya-degisimi',
+    ],
     faq: [
       {
         id: 'kombi-gaz-acma-hizmeti-mi',
@@ -524,6 +641,128 @@ export const services: Service[] = [
       {
         variant: 'warning',
         text: 'Gaz açma ve baca uygunluğu gibi işlemler, ilgili yetkili kuruluş veya marka servisi gerektirebilir.',
+      },
+    ],
+  },
+  {
+    slug: 'dogalgaz-tesisati-gaz-kacagi-tespiti',
+    path: '/dogalgaz-tesisati-gaz-kacagi-tespiti',
+    title: 'Doğalgaz tesisatı ve gaz kaçağı tespiti',
+    shortTitle: 'Doğalgaz Tesisatı',
+    cardDescription:
+      'Doğalgaz iç tesisatı, bağlantı noktaları ve gaz kaçağı şüphelerinde kontrol ve değerlendirme.',
+    seoTitle: 'Doğalgaz Tesisatı ve Gaz Kaçağı Tespiti | Tesisatçınız',
+    metaDescription:
+      'Kağıthane, Şişli ve Beşiktaş’ta doğalgaz tesisatı kontrolü ve gaz kaçağı tespiti için servis bilgisi alın. Gaz kokusunda güvenli yerden 187’yi arayın.',
+    heroTitle: 'Doğalgaz Tesisatı ve Gaz Kaçağı Tespiti',
+    heroDescription:
+      'Doğalgaz iç tesisatı, vana ve bağlantı noktalarındaki kaçak şüphelerinin değerlendirilmesi için servis müsaitliğini öğrenin. Aktif gaz kokusunda önce 187’yi arayın.',
+    intro:
+      'Doğalgaz iç tesisatındaki boru, vana ve cihaz bağlantıları kaçak şüphesi veya tadilat ihtiyacı olduğunda uygun ölçüm yöntemiyle değerlendirilir. Aktif gaz kokusu acil durumdur; elektrik düğmelerine ve telefonunuza dokunmadan ortamı boşaltın, güvenli bir yerden 187 Doğal Gaz Acil Hattı’nı arayın. Rutin kontrol, kaçak sonrası onarım ve tesisat işlemlerinin kapsamı yerinde inceleme ve yetki gerekliliklerine göre netleştirilir.',
+    image: {
+      alt: 'Doğalgaz tesisatında gaz kaçağı kontrolü yapan uzman',
+      placeholderIcon: ShieldAlert,
+      placeholderTone: 'navy',
+    },
+    icon: ShieldAlert,
+    symptoms: [
+      { label: 'Doğalgaz boru hattında kaçak şüphesi' },
+      { label: 'Sayaç, vana veya cihaz bağlantılarının kontrol ihtiyacı' },
+      { label: 'Doğalgaz tesisatında tadilat veya hat yenileme gereksinimi' },
+      { label: 'Kombi veya ocak bağlantı noktasında sızdırmazlık şüphesi' },
+      { label: '187 müdahalesi sonrasında iç tesisatta onarım ihtiyacı' },
+    ],
+    processSteps: [
+      {
+        title: 'Önce güvenliği sağlayın',
+        description:
+          'Aktif gaz kokusunda elektrik düğmelerine dokunmadan alanı boşaltın ve güvenli bir yerden 187’yi arayın.',
+      },
+      {
+        title: 'Rutin talebi iletin',
+        description:
+          'Ortam güvenli hâle geldikten sonra tesisatın konumu, cihaz bağlantıları ve varsa 187 ekiplerinin tespitini paylaşın.',
+      },
+      {
+        title: 'Tesisat değerlendirilir',
+        description:
+          'Boru hattı, vana ve bağlantı noktaları uygun yöntemle kontrol edilerek işlem kapsamı belirlenir.',
+      },
+      {
+        title: 'Yetki ve onay sonrası işlem',
+        description:
+          'Onarım, tadilat, proje veya dağıtım şirketi onayı gereksinimleri açıklanır; uygun kapsamda onayınızla devam edilir.',
+      },
+    ],
+    pricingFactors: [
+      'Kontrol edilecek hattın kapsamı',
+      'Kaçak noktasının konumu ve erişim koşulları',
+      'Onarım veya tadilat için gereken malzeme',
+      'Proje ve sertifikalı firma gereksinimi',
+      'Çalışma süresi',
+    ],
+    relatedServices: ['kombi-montaji', 'tesisat-ariza-onarim', 'musluk-batarya-degisimi'],
+    faq: [
+      {
+        id: 'dogalgaz-kokusu-ne-yapilmali',
+        question: 'Evde doğalgaz kokusu varsa ne yapmalıyım?',
+        answer:
+          'Elektrik düğmelerini açmayın veya kapatmayın, prizlere ve telefonunuza dokunmayın, ateş ya da kıvılcım oluşturmayın. Mümkünse kapı ve pencereleri açın, ortamı boşaltın ve gaz kokusu olmayan güvenli bir yerden 187 Doğal Gaz Acil Hattı’nı arayın.',
+      },
+      {
+        id: 'dogalgaz-kacaginda-187-mi-aranir',
+        question: 'Gaz kaçağı şüphesinde önce tesisatçı mı, 187 mi aranmalı?',
+        answer:
+          'Aktif gaz kokusu veya acil kaçak şüphesinde önce güvenli bir yerden 187 aranmalıdır. Acil durum güvenli hâle getirildikten sonra, iç tesisatta gereken onarım ve tadilat sertifikalı firma ve dağıtım şirketi koşullarına göre planlanır.',
+      },
+      {
+        id: 'dogalgaz-kacak-tespiti-nasil-yapilir',
+        question: 'Doğalgaz kaçağı tespiti nasıl yapılır?',
+        answer:
+          'Kontrol yöntemi tesisatın durumuna ve bağlantı tipine göre belirlenir. Boru hattı, vana ve cihaz bağlantıları uygun ölçüm ekipmanıyla değerlendirilir; bulunan sorun ve önerilen işlem müşteriye açıklanır. Kaçağı alevle kontrol etmeye kesinlikle çalışmayın.',
+      },
+      {
+        id: 'dogalgaz-proje-gaz-acma-dahil-mi',
+        question: 'Doğalgaz projesi ve gaz açma işlemi bu hizmete dahil mi?',
+        answer:
+          'Proje, gaz açma, sızdırmazlık belgesi ve dağıtım şirketi onayı gerektiren işlemler sertifikalı firma yetkisi ve ilgili dağıtım şirketinin prosedürlerine tabidir. Gerekli kapsam yerinde değerlendirme sonrasında açıkça belirtilir.',
+      },
+    ],
+    schemaName: 'Doğalgaz Tesisatı ve Gaz Kaçağı Tespiti',
+    schemaDescription:
+      'Kağıthane, Şişli ve Beşiktaş bölgelerinde doğalgaz iç tesisatı, bağlantı noktaları ve gaz kaçağı şüphelerine yönelik kontrol ve değerlendirme hizmeti.',
+    infoBox: {
+      title: 'Gaz kokusu varsa önce 187’yi arayın',
+      description:
+        'Aktif gaz kokusu rutin servis talebi değildir. Elektrik düğmelerine, prizlere veya telefonunuza dokunmadan ortamı boşaltın; gaz kokusu olmayan güvenli bir yerden 187 Doğal Gaz Acil Hattı’nı arayın. Acil durum güvenli hâle geldikten sonra onarım talebi oluşturun.',
+      action: {
+        label: '187 Doğal Gaz Acil’i Ara',
+        href: 'tel:187',
+      },
+    },
+    beforeServiceNotes: [
+      'Aktif gaz kokusunda bu sayfadaki normal iletişim butonlarını kullanmadan önce alanı boşaltın ve güvenli bir yerden 187’yi arayın.',
+      'Kaçağı çakmak, kibrit veya başka bir alev kaynağıyla kontrol etmeye kesinlikle çalışmayın.',
+      'Rutin kontrolde tesisatın konumunu, bağlı cihazları ve varsa 187 ekiplerinin tespitini paylaşın.',
+    ],
+    afterServiceTips: [
+      'Gaz vanasını yalnızca yetkili yönlendirmeye göre yeniden açın.',
+      'Proje veya dağıtım şirketi onayı gereken adımları tamamlamadan tesisatı kullanmayın.',
+      'Yeni bir gaz kokusu fark ederseniz alanı boşaltıp güvenli bir yerden tekrar 187’yi arayın.',
+    ],
+    commonMistakes: [
+      'Gaz kaçağını çakmak veya kibritle kontrol etmeye çalışmak',
+      'Gaz kokusu olan ortamda elektrik düğmesi, priz veya telefon kullanmak',
+      'Yetkisiz şekilde tesisata müdahale etmek veya gaz vanasını yeniden açmak',
+    ],
+    miniCallouts: [
+      {
+        variant: 'warning',
+        text: 'Aktif gaz kokusunda ortamda telefon veya elektrik düğmesi kullanmayın; alanı boşaltıp güvenli bir yerden 187’yi arayın.',
+      },
+      {
+        variant: 'info',
+        text: 'Proje, gaz açma ve dağıtım şirketi onayı gerektiren işlemler sertifikalı firma prosedürlerine tabidir.',
       },
     ],
   },

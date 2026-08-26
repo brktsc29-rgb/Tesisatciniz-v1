@@ -21,6 +21,10 @@ export interface ServiceImage {
 export interface ServiceInfoBox {
   title: string;
   description: string;
+  action?: {
+    label: string;
+    href: string;
+  };
 }
 
 export interface ServiceMiniCallout {
