@@ -15,8 +15,8 @@ export function DistrictCard({ name, description, href, slug }: DistrictCardProp
   return (
     <div className="relative aspect-[4/3] overflow-hidden rounded-2xl sm:aspect-[3/4]">
       <ResponsiveImage
-        src={slug ? `/images/districts/${slug}/card.jpg` : undefined}
-        alt={`${name} bölgesi`}
+        src={slug ? `/images/districts/${slug}/card.webp` : undefined}
+        alt={`${name} ilçesinin İstanbul içindeki konumunu gösteren harita görseli`}
         width={400}
         height={500}
         rounded="2xl"

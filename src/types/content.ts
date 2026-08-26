@@ -20,6 +20,8 @@ export interface CompletedWork {
   title: string;
   area: string;
   description: string;
+  imageSrc: string;
+  imageAlt: string;
 }
 
 export interface FaqItem {

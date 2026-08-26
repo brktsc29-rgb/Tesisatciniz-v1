@@ -32,7 +32,8 @@ export function CompletedWorksSection() {
               className="w-[260px] shrink-0 snap-start rounded-2xl border border-border-light bg-white p-4 sm:w-[300px]"
             >
               <ResponsiveImage
-                alt={`${work.title} — ${work.area}`}
+                src={work.imageSrc}
+                alt={work.imageAlt}
                 width={400}
                 height={300}
                 rounded="xl"
