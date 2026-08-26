@@ -17,7 +17,8 @@ export const services: Service[] = [
     intro:
       'Klozet ve rezervuar arızaları genellikle şamandıra, iç takım veya bağlantı noktalarındaki aşınmadan kaynaklanır. Arıza yerinde değerlendirilir ve gerekirse parça değişimi öncesinde malzeme ile işçilik bilgisi paylaşılır.',
     image: {
-      alt: 'Klozet ve rezervuar tamiri yapan tesisatçı',
+      src: '/images/services/klozet-rezervuar-hero.jpg',
+      alt: 'Gömme rezervuarlı asma klozet ve kumanda paneli',
       placeholderIcon: Toilet,
       placeholderTone: 'teal',
     },
@@ -122,7 +123,8 @@ export const services: Service[] = [
     intro:
       'Gömme rezervuar arızaları çoğunlukla doldurma grubu, boşaltma grubu, conta veya kumanda mekanizmasındaki aşınmadan kaynaklanır. Öncelikle servis kapağından erişilebilen parçalar kontrol edilir; marka ve modele uygun parça gereksinimi ile yapılacak işlem müşteriye açıklanır. Duvar ya da kaplama müdahalesi ancak servis boşluğundan erişilemeyen bir sorun tespit edilirse ayrıca değerlendirilir.',
     image: {
-      alt: 'Gömme rezervuar tamiri yapan tesisatçı',
+      src: '/images/services/gomme-rezervuar-hero.jpg',
+      alt: 'Gömme rezervuarlı asma klozet ve çift kademeli kumanda paneli',
       placeholderIcon: Toilet,
       placeholderTone: 'navy',
     },
@@ -234,7 +236,8 @@ export const services: Service[] = [
     intro:
       'Musluk ve batarya arızaları çoğunlukla iç conta aşınması veya bağlantı gevşemesinden kaynaklanır. Eski parça yerinde kontrol edilir; onarım mı yoksa değişim mi gerektiği ve malzeme seçimi müşteriye açıklanır.',
     image: {
-      alt: 'Musluk ve batarya değişimi yapan tesisatçı',
+      src: '/images/services/musluk-batarya-hero.jpg',
+      alt: 'Banyo ve mutfak için farklı musluk ve batarya modelleri',
       placeholderIcon: Droplet,
       placeholderTone: 'blue',
     },
@@ -337,7 +340,8 @@ export const services: Service[] = [
     intro:
       'Lavabo ve evye tıkanıklıkları genellikle yağ, sabun veya yemek kalıntılarının sifon bölgesinde birikmesinden kaynaklanır. Tıkanıklığın konumu değerlendirildikten sonra uygun yöntemle müdahale edilir.',
     image: {
-      alt: 'Lavabo ve evye tıkanıklığı açan tesisatçı',
+      src: '/images/services/lavabo-evye-tikanikligi-hero.webp',
+      alt: 'Mutfak evyesi altında gider bağlantısını kontrol eden tesisatçı',
       placeholderIcon: Bath,
       placeholderTone: 'teal',
     },
@@ -440,7 +444,8 @@ export const services: Service[] = [
     intro:
       'Su tesisatındaki genel arızalar; bağlantı noktaları, flex hortumlar, ara musluklar veya sıcak-soğuk su hatlarında ortaya çıkabilir. Arıza yerinde değerlendirilir ve gerekli onarım ile küçük tesisat yenilemeleri için işlem ve malzeme bilgisi önceden paylaşılır.',
     image: {
-      alt: 'Su tesisatı onarımı yapan tesisatçı',
+      src: '/images/services/tesisat-ariza-onarim-hero.jpg',
+      alt: 'Zemine döşenmiş yerden ısıtma tesisatı boruları',
       placeholderIcon: Wrench,
       placeholderTone: 'navy',
     },
@@ -545,7 +550,8 @@ export const services: Service[] = [
     intro:
       'Kombi montajı; mevcut tesisatın uyumluluğunun değerlendirilmesini, su ve kalorifer tesisatı bağlantılarının kontrolünü kapsar. Baca bağlantısı, gaz hattı ve ilk çalıştırma gibi işlemler cihaz markasına ve ilgili mevzuata bağlı olarak yetkili kuruluş veya marka servisi gerektirebilir.',
     image: {
-      alt: 'Kombi montajı yapan tesisatçı',
+      src: '/images/services/kombi-montaji-hero.jpg',
+      alt: 'Duvara monte kombi ve su ile doğalgaz tesisatı bağlantıları',
       placeholderIcon: Flame,
       placeholderTone: 'blue',
     },
@@ -660,7 +666,8 @@ export const services: Service[] = [
     intro:
       'Doğalgaz iç tesisatındaki boru, vana ve cihaz bağlantıları kaçak şüphesi veya tadilat ihtiyacı olduğunda uygun ölçüm yöntemiyle değerlendirilir. Aktif gaz kokusu acil durumdur; elektrik düğmelerine ve telefonunuza dokunmadan ortamı boşaltın, güvenli bir yerden 187 Doğal Gaz Acil Hattı’nı arayın. Rutin kontrol, kaçak sonrası onarım ve tesisat işlemlerinin kapsamı yerinde inceleme ve yetki gerekliliklerine göre netleştirilir.',
     image: {
-      alt: 'Doğalgaz tesisatında gaz kaçağı kontrolü yapan uzman',
+      src: '/images/services/dogalgaz-gaz-kacagi-hero.webp',
+      alt: 'Doğalgaz boru bağlantısını elektronik kaçak dedektörüyle kontrol eden teknisyen',
       placeholderIcon: ShieldAlert,
       placeholderTone: 'navy',
     },
