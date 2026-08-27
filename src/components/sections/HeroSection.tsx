@@ -46,8 +46,13 @@ export function HeroSection() {
 
         <div className="flex flex-col gap-3 md:col-start-1 md:row-start-2">
           <div className="hidden flex-col gap-3 md:flex">
-            <ContactButton kind="call" label="Müsaitlik İçin Ara" fullWidth />
-            <ContactButton kind="whatsapp" label="WhatsApp’tan Fotoğraf Gönder" fullWidth />
+            <ContactButton kind="call" label="Müsaitlik İçin Ara" fullWidth analyticsLocation="hero" />
+            <ContactButton
+              kind="whatsapp"
+              label="WhatsApp’tan Fotoğraf Gönder"
+              fullWidth
+              analyticsLocation="hero"
+            />
           </div>
 
           <div className="flex items-center gap-2.5 rounded-xl border border-border-light bg-white px-4 py-2.5 shadow-sm">

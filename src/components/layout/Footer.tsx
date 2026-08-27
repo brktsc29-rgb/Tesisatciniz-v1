@@ -86,8 +86,8 @@ export function Footer() {
             ) : null}
 
             <div className="mt-5 flex flex-col gap-3">
-              <ContactButton kind="call" label="Müsaitlik İçin Ara" fullWidth />
-              <ContactButton kind="whatsapp" label="WhatsApp" fullWidth />
+              <ContactButton kind="call" label="Müsaitlik İçin Ara" fullWidth analyticsLocation="footer" />
+              <ContactButton kind="whatsapp" label="WhatsApp" fullWidth analyticsLocation="footer" />
             </div>
           </div>
         </div>

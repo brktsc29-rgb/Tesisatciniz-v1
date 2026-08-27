@@ -14,6 +14,7 @@ import { ServiceComparison } from '../components/ServiceComparison';
 import { ServicePrevNext } from '../components/ServicePrevNext';
 import { CommonMistakes } from '../components/CommonMistakes';
 import { districts } from '../data/districts';
+import { trackPhoneClick, trackWhatsAppClick } from '../lib/analytics';
 import {
   buildBreadcrumbSchema,
   buildFaqSchema,
@@ -35,6 +36,7 @@ interface ServicePageProps {
 
 export function ServicePage({ service }: ServicePageProps) {
   const Icon = service.icon;
+  const infoBox = service.infoBox;
 
   const breadcrumbItems: BreadcrumbTrailItem[] = [
     { label: 'Ana Sayfa', path: ROUTES.home },
@@ -70,6 +72,7 @@ export function ServicePage({ service }: ServicePageProps) {
         description={service.heroDescription}
         image={service.image}
         infoBoxText="İşleme başlanmadan önce yapılacak müdahale ve ücret hakkında bilgi verilir."
+        analyticsLocation="service_page"
       />
 
       <section className="py-16 md:py-20">
@@ -78,20 +81,36 @@ export function ServicePage({ service }: ServicePageProps) {
         </Container>
       </section>
 
-      {service.infoBox ? (
+      {infoBox ? (
         <section className="pb-16 md:pb-20">
           <Container className="max-w-3xl">
             <div className="rounded-2xl border border-blue/20 bg-blue/5 p-6">
-              <h2 className="text-base font-bold text-navy">{service.infoBox.title}</h2>
+              <h2 className="text-base font-bold text-navy">{infoBox.title}</h2>
               <p className="mt-2 text-sm leading-relaxed text-ink/80 md:text-[15px]">
-                {service.infoBox.description}
+                {infoBox.description}
               </p>
-              {service.infoBox.action ? (
+              {infoBox.action ? (
                 <a
-                  href={service.infoBox.action.href}
+                  href={infoBox.action.href}
+                  onClick={() => {
+                    if (infoBox.action?.href.startsWith('tel:')) {
+                      trackPhoneClick({
+                        linkUrl: infoBox.action.href,
+                        phoneNumber: infoBox.action.href.replace('tel:', ''),
+                        location: 'service_page',
+                      });
+                    }
+
+                    if (infoBox.action?.href.includes('wa.me')) {
+                      trackWhatsAppClick({
+                        linkUrl: infoBox.action.href,
+                        location: 'service_page',
+                      });
+                    }
+                  }}
                   className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-orange px-5 text-sm font-bold text-white transition-colors hover:bg-orange/90"
                 >
-                  {service.infoBox.action.label}
+                  {infoBox.action.label}
                 </a>
               ) : null}
             </div>
@@ -215,7 +234,7 @@ export function ServicePage({ service }: ServicePageProps) {
         </Container>
       </section>
 
-      <FinalCTA />
+      <FinalCTA analyticsLocation="service_page" />
     </>
   );
 }

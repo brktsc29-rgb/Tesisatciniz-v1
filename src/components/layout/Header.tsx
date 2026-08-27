@@ -43,10 +43,15 @@ export function Header() {
           <div className="flex items-center gap-2">
             <SiteSearch />
             <div className="lg:hidden">
-              <ContactButton kind="call" label="Müsaitlik İçin Ara" shape="iconCircle" />
+              <ContactButton
+                kind="call"
+                label="Müsaitlik İçin Ara"
+                shape="iconCircle"
+                analyticsLocation="header"
+              />
             </div>
             <div className="hidden lg:block">
-              <ContactButton kind="call" label="Müsaitlik İçin Ara" />
+              <ContactButton kind="call" label="Müsaitlik İçin Ara" analyticsLocation="header" />
             </div>
             <button
               ref={menuButtonRef}

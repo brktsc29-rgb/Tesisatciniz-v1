@@ -4,6 +4,7 @@ import type { LucideIcon } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { ContactButton } from '../ui/ContactButton';
 import { ResponsiveImage } from '../ui/ResponsiveImage';
+import type { AnalyticsLocation } from '../../lib/analytics';
 
 interface PageHeroImage {
   src?: string;
@@ -22,6 +23,7 @@ interface PageHeroProps {
   imageSlot?: ReactNode;
   /** Sağlanırsa CTA'ların altında küçük bir bilgi kutusu gösterilir. */
   infoBoxText?: string;
+  analyticsLocation?: AnalyticsLocation;
 }
 
 /**
@@ -29,7 +31,15 @@ interface PageHeroProps {
  * kendi HeroSection'ı değiştirilmez; bu bileşen yalnızca yeni sayfa
  * türleri için paylaşılan bir düzendir.
  */
-export function PageHero({ eyebrow, title, description, image, imageSlot, infoBoxText }: PageHeroProps) {
+export function PageHero({
+  eyebrow,
+  title,
+  description,
+  image,
+  imageSlot,
+  infoBoxText,
+  analyticsLocation,
+}: PageHeroProps) {
   return (
     <section className="bg-gradient-to-b from-white to-surface py-8 md:py-16">
       <Container className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center md:gap-x-12 md:gap-y-8">
@@ -63,8 +73,18 @@ export function PageHero({ eyebrow, title, description, image, imageSlot, infoBo
 
         <div className="flex flex-col gap-3 md:col-start-1 md:row-start-2">
           <div className="hidden flex-col gap-3 md:flex">
-            <ContactButton kind="call" label="Müsaitlik İçin Ara" fullWidth />
-            <ContactButton kind="whatsapp" label="WhatsApp’tan Fotoğraf Gönder" fullWidth />
+            <ContactButton
+              kind="call"
+              label="Müsaitlik İçin Ara"
+              fullWidth
+              analyticsLocation={analyticsLocation}
+            />
+            <ContactButton
+              kind="whatsapp"
+              label="WhatsApp’tan Fotoğraf Gönder"
+              fullWidth
+              analyticsLocation={analyticsLocation}
+            />
           </div>
 
           {infoBoxText ? (

@@ -1,7 +1,12 @@
 import { Container } from '../ui/Container';
 import { ContactButton } from '../ui/ContactButton';
+import type { AnalyticsLocation } from '../../lib/analytics';
 
-export function FinalCTA() {
+interface FinalCTAProps {
+  analyticsLocation?: AnalyticsLocation;
+}
+
+export function FinalCTA({ analyticsLocation }: FinalCTAProps) {
   return (
     <section id="contact" aria-labelledby="final-cta-heading" className="scroll-mt-20 bg-navy py-16 md:py-24">
       <Container className="flex flex-col items-center gap-6 text-center">
@@ -13,8 +18,18 @@ export function FinalCTA() {
           yapılabilecek işlem hakkında ön bilgi alın.
         </p>
         <div className="flex w-full max-w-sm flex-col gap-3 sm:max-w-md sm:flex-row">
-          <ContactButton kind="call" label="Müsaitlik İçin Ara" fullWidth />
-          <ContactButton kind="whatsapp" label="WhatsApp’tan Fotoğraf Gönder" fullWidth />
+          <ContactButton
+            kind="call"
+            label="Müsaitlik İçin Ara"
+            fullWidth
+            analyticsLocation={analyticsLocation}
+          />
+          <ContactButton
+            kind="whatsapp"
+            label="WhatsApp’tan Fotoğraf Gönder"
+            fullWidth
+            analyticsLocation={analyticsLocation}
+          />
         </div>
       </Container>
     </section>

@@ -130,8 +130,18 @@ export function MobileMenu({ isOpen, onClose, triggerRef }: MobileMenuProps) {
         </nav>
 
         <div className="mt-8 flex flex-col gap-3 border-t border-border-light pt-6">
-          <ContactButton kind="call" label="Müsaitlik İçin Ara" fullWidth />
-          <ContactButton kind="whatsapp" label="WhatsApp'tan Fotoğraf Gönder" fullWidth />
+          <ContactButton
+            kind="call"
+            label="Müsaitlik İçin Ara"
+            fullWidth
+            analyticsLocation="header"
+          />
+          <ContactButton
+            kind="whatsapp"
+            label="WhatsApp'tan Fotoğraf Gönder"
+            fullWidth
+            analyticsLocation="header"
+          />
         </div>
       </div>
     </div>

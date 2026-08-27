@@ -54,7 +54,7 @@ export function NotFoundPage() {
             >
               Hizmetleri İncele
             </Link>
-            <ContactButton kind="whatsapp" label="WhatsApp" />
+            <ContactButton kind="whatsapp" label="WhatsApp" analyticsLocation="other" />
           </div>
         </Container>
       </section>

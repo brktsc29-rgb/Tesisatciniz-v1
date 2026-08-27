@@ -61,6 +61,7 @@ export function DistrictPage({ district }: DistrictPageProps) {
         title={district.heroTitle}
         description={district.heroDescription}
         imageSlot={<DistrictMap name={district.name} coordinates={district.coordinates} className="w-full" />}
+        analyticsLocation="district_page"
       />
 
       <section className="py-16 md:py-20">
@@ -151,7 +152,7 @@ export function DistrictPage({ district }: DistrictPageProps) {
         </Container>
       </section>
 
-      <FinalCTA />
+      <FinalCTA analyticsLocation="district_page" />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { Phone, MessageCircle } from 'lucide-react';
 import { business } from '../../config/business';
 import { buildWhatsAppUrl } from '../../lib/whatsapp';
+import { trackPhoneClick, trackWhatsAppClick, type AnalyticsLocation } from '../../lib/analytics';
 import { cn } from '../../lib/cn';
 import { useContactNotice } from '../../hooks/useContactNotice';
 import { theme } from '../../config/theme';
@@ -20,6 +21,7 @@ interface ContactButtonProps {
   fullWidth?: boolean;
   className?: string;
   whatsappMessage?: string;
+  analyticsLocation?: AnalyticsLocation;
 }
 
 const NOTICE_MESSAGE = 'İletişim numarası yakında eklenecek.';
@@ -32,6 +34,7 @@ export function ContactButton({
   fullWidth = false,
   className,
   whatsappMessage,
+  analyticsLocation,
 }: ContactButtonProps) {
   const { showNotice } = useContactNotice();
   const Icon = kind === 'call' ? Phone : MessageCircle;
@@ -77,12 +80,30 @@ export function ContactButton({
     </>
   );
 
+  const handleClick = () => {
+    if (!href) return;
+
+    if (kind === 'call') {
+      trackPhoneClick({
+        linkUrl: href,
+        location: analyticsLocation,
+      });
+      return;
+    }
+
+    trackWhatsAppClick({
+      linkUrl: href,
+      location: analyticsLocation,
+    });
+  };
+
   if (href) {
     return (
       <a
         href={href}
         className={classes}
         style={shapeStyle}
+        onClick={handleClick}
         {...(kind === 'whatsapp' ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       >
         {content}

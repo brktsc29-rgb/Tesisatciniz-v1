@@ -7,8 +7,18 @@ export function MobileStickyContactBar() {
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
       <div className="flex overflow-hidden rounded-t-2xl bg-white shadow-[0_-6px_20px_rgba(16,42,67,0.14)]">
-        <ContactButton kind="call" label="Müsaitlik İçin Ara" shape="barSegment" />
-        <ContactButton kind="whatsapp" label="WhatsApp" shape="barSegment" />
+        <ContactButton
+          kind="call"
+          label="Müsaitlik İçin Ara"
+          shape="barSegment"
+          analyticsLocation="sticky_bar"
+        />
+        <ContactButton
+          kind="whatsapp"
+          label="WhatsApp"
+          shape="barSegment"
+          analyticsLocation="sticky_bar"
+        />
       </div>
     </div>
   );
