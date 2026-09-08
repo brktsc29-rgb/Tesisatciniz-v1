@@ -40,6 +40,29 @@
     <meta data-default="true" name="twitter:title" content="Tesisatçınız | Kağıthane, Şişli ve Beşiktaş Su Tesisatçısı" />
     <meta data-default="true" name="twitter:description" content="Kağıthane, Şişli ve Beşiktaş’ta klozet, musluk, kombi montajı ve tesisat onarımı için servis müsaitliğini öğrenin." />
     <meta data-default="true" name="twitter:image" content="https://tesisatciniz.com/og-image.png" />
+    <script>
+      (function () {
+        var measurementId = 'G-CJ38J4P39J';
+        var productionHosts = ['tesisatciniz.com', 'www.tesisatciniz.com'];
+
+        if (productionHosts.indexOf(window.location.hostname) === -1) return;
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag =
+          window.gtag ||
+          function () {
+            window.dataLayer.push(arguments);
+          };
+
+        window.gtag('js', new Date());
+        window.gtag('config', measurementId, { send_page_view: false });
+
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
+        document.head.appendChild(script);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

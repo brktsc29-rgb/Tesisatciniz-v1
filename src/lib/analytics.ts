@@ -48,18 +48,26 @@ type GtagCommand = [string, ...unknown[]];
 let initialized = false;
 let lastPageViewSignature = '';
 
+const productionHosts = ['tesisatciniz.com', 'www.tesisatciniz.com'];
+
 function isAnalyticsEnabled(): boolean {
-  return import.meta.env.PROD && typeof window !== 'undefined';
+  return (
+    import.meta.env.PROD &&
+    typeof window !== 'undefined' &&
+    productionHosts.includes(window.location.hostname)
+  );
 }
 
 function ensureInitialized(): void {
   if (!isAnalyticsEnabled() || initialized) return;
   initialized = true;
 
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${analytics.measurementId}`;
-  document.head.appendChild(script);
+  if (!document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${analytics.measurementId}"]`)) {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${analytics.measurementId}`;
+    document.head.appendChild(script);
+  }
 
   window.dataLayer = window.dataLayer || [];
   window.gtag =
