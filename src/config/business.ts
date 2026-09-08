@@ -50,8 +50,8 @@ export const business: BusinessConfig = {
   socialLinks: [],
 
   logo: '/brand/logo.svg',
-  workingHours: [],
-  googleBusinessUrl: '',
+  workingHours: ['Mo-Su 00:00-23:59'],
+  googleBusinessUrl: 'https://maps.app.goo.gl/vrq5bAWktdLU5w5DA?g_st=ic',
   reviewUrl: '',
   coordinates: null,
   address: '',
