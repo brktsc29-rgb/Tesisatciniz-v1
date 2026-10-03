@@ -50,7 +50,8 @@ export const business: BusinessConfig = {
   socialLinks: [],
 
   logo: '/brand/logo.svg',
-  workingHours: ['Mo-Su 00:00-23:59'],
+  // Düzenli çalışma saatleri doğrulanana kadar schema'da saat yayımlama.
+  workingHours: [],
   googleBusinessUrl: 'https://maps.app.goo.gl/vrq5bAWktdLU5w5DA?g_st=ic',
   reviewUrl: '',
   coordinates: null,

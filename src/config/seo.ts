@@ -10,9 +10,9 @@ import { getAbsoluteUrl } from '../lib/url';
 export const seo = {
   siteName: business.businessName,
   brandName: business.businessName,
-  defaultTitle: 'Tesisatçınız | Kağıthane, Şişli ve Beşiktaş Su Tesisatçısı',
+  defaultTitle: 'Kağıthane, Şişli ve Beşiktaş Su Tesisatçısı | Tesisatçınız',
   defaultDescription:
-    'Kağıthane, Şişli ve Beşiktaş’ta su ve doğalgaz tesisatı, klozet, musluk, kombi montajı ve onarım hizmetleri için servis bilgisi alın.',
+    'Kağıthane, Şişli ve Beşiktaş’ta klozet, rezervuar, musluk ve su tesisatı arızaları için servis bilgisini telefonla alın veya WhatsApp’tan fotoğraf gönderin.',
   defaultOgImage: '/og-image.png',
   twitterImage: '/og-image.png',
   canonicalBase: getAbsoluteUrl('/'),

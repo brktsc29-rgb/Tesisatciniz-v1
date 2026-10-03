@@ -19,12 +19,12 @@ export function HeroSection() {
             id="hero-heading"
             className="text-[38px] leading-[1.12] font-extrabold text-navy sm:text-[42px] md:text-[48px]"
           >
-            Su tesisatı sorunlarında{' '}
-            <span className="text-blue">güvenilir ve kontrollü müdahale</span>
+            Kağıthane, Şişli ve Beşiktaş’ta{' '}
+            <span className="text-blue">su tesisatçısı</span>
           </h1>
           <p className="text-base leading-snug text-ink/80 md:leading-relaxed md:text-lg">
-            Klozet arızası, musluk ve batarya sorunları, kombi montajı ve diğer tesisat
-            sorunlarında servis durumunu öğrenmek için arayın veya sorunun fotoğrafını
+            Klozet ve rezervuar arızası, musluk sorunları, lavabo tıkanıklığı ve su tesisatı
+            onarımında servis durumunu öğrenmek için arayın veya sorunun fotoğrafını
             WhatsApp’tan gönderin.
           </p>
         </div>

@@ -1,4 +1,21 @@
 {
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gider-tikanikligi-acma",
+      "destination": "/lavabo-evye-tikanikligi",
+      "permanent": true
+    },
+    {
+      "source": "/su-kacagi-tespiti",
+      "destination": "/tesisat-ariza-onarim",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/blog", "destination": "/app-shell.html" },
     { "source": "/blog/:slug", "destination": "/app-shell.html" }

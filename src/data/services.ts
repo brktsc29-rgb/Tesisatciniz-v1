@@ -8,9 +8,9 @@ export const services: Service[] = [
     title: 'Klozet ve rezervuar tamiri',
     shortTitle: 'Klozet Tamiri',
     cardDescription: 'Klozet arızaları, rezervuar su kaçırma ve dolum sorunlarının giderilmesi.',
-    seoTitle: 'Klozet ve Rezervuar Tamiri | Tesisatçınız',
+    seoTitle: 'Klozet ve Rezervuar Tamiri | Kağıthane, Şişli, Beşiktaş',
     metaDescription:
-      'Klozet akıntısı, rezervuar dolmama, su kaçırma ve sifon arızalarında servis müsaitliğini öğrenin.',
+      'Kağıthane, Şişli ve Beşiktaş’ta klozet ve rezervuar tamiri. Su kaçırma, dolmama ve sifon arızalarında fotoğraf gönderip servis bilgisini alın.',
     heroTitle: 'Klozet ve Rezervuar Tamiri',
     heroDescription:
       'Rezervuarın sürekli su alması, sifonun çalışmaması veya klozete su akması gibi arızalarda servis müsaitliğini öğrenin.',
@@ -114,9 +114,9 @@ export const services: Service[] = [
     shortTitle: 'Gömme Rezervuar',
     cardDescription:
       'Duvar içi gömme rezervuarlarda su kaçırma, dolmama ve kumanda paneli arızalarının giderilmesi.',
-    seoTitle: 'Gömme Rezervuar Tamiri | Tesisatçınız',
+    seoTitle: 'Gömme Rezervuar Tamiri | Kağıthane, Şişli, Beşiktaş',
     metaDescription:
-      'Kağıthane, Şişli ve Beşiktaş’ta gömme rezervuar tamiri; su kaçırma, dolmama ve buton arızalarında servis müsaitliği ve ücret bilgisi alın.',
+      'Kağıthane, Şişli ve Beşiktaş’ta gömme rezervuar su kaçırma, dolmama ve buton arızaları için servis bilgisi alın; fotoğrafı WhatsApp’tan gönderin.',
     heroTitle: 'Gömme Rezervuar Tamiri',
     heroDescription:
       'Duvar içi rezervuarın sürekli su alması, klozete su kaçırması, dolmaması veya kumanda panelinin çalışmaması gibi arızalarda servis müsaitliğini öğrenin.',
@@ -227,9 +227,9 @@ export const services: Service[] = [
     title: 'Musluk ve batarya değişimi',
     shortTitle: 'Musluk Değişimi',
     cardDescription: 'Damlatan veya arızalı musluk ile bataryaların onarımı ve değişimi.',
-    seoTitle: 'Musluk ve Batarya Değişimi | Tesisatçınız',
+    seoTitle: 'Musluk ve Batarya Tamiri | Kağıthane, Şişli, Beşiktaş',
     metaDescription:
-      'Damlatan musluk, arızalı batarya ve bağlantı sorunlarında değişim veya onarım için servis bilgisi alın.',
+      'Kağıthane, Şişli ve Beşiktaş’ta damlatan musluk, arızalı batarya ve bağlantı sorunları için onarım veya değişim servis bilgisi alın.',
     heroTitle: 'Musluk ve Batarya Değişimi',
     heroDescription:
       'Damlatan musluk, sertleşen batarya kolu veya bağlantı yerinden su kaçırma gibi durumlarda onarım ya da değişim için servis müsaitliğini öğrenin.',
@@ -331,9 +331,9 @@ export const services: Service[] = [
     title: 'Lavabo ve evye tıkanıklığı',
     shortTitle: 'Lavabo Tıkanıklığı',
     cardDescription: 'Lavabo ve evyelerde oluşan tıkanıklıkların temizlenmesi ve giderilmesi.',
-    seoTitle: 'Lavabo ve Evye Tıkanıklığı Açma | Tesisatçınız',
+    seoTitle: 'Lavabo ve Evye Tıkanıklığı | Kağıthane, Şişli, Beşiktaş',
     metaDescription:
-      'Mutfak evyesi ve lavabo tıkanıklıklarında servis müsaitliğini öğrenin, sorunun fotoğrafını WhatsApp\'tan gönderin.',
+      'Kağıthane, Şişli ve Beşiktaş’ta lavabo veya mutfak evyesi tıkanıklığı için servis müsaitliğini öğrenin; sorunun fotoğrafını WhatsApp’tan gönderin.',
     heroTitle: 'Lavabo ve Evye Tıkanıklığı Açma',
     heroDescription:
       'Yavaş akan veya tamamen tıkanan lavabo ve evyelerde, sifon bölgesindeki tıkanıklığın giderilmesi için servis müsaitliğini öğrenin.',
@@ -435,9 +435,9 @@ export const services: Service[] = [
     title: 'Tesisat arıza ve onarım',
     shortTitle: 'Tesisat Onarımı',
     cardDescription: 'Boru, vana ve genel su tesisatı arızalarında onarım hizmeti.',
-    seoTitle: 'Tesisat Arıza ve Onarım Hizmeti | Tesisatçınız',
+    seoTitle: 'Su Tesisatı Onarımı | Kağıthane, Şişli, Beşiktaş',
     metaDescription:
-      'Kağıthane, Şişli ve Beşiktaş\'ta su tesisatı arıza, bağlantı, kaçak ve onarım ihtiyaçları için servis bilgisi alın.',
+      'Kağıthane, Şişli ve Beşiktaş’ta vana, flex hortum, bağlantı ve su tesisatı arızaları için yerinde değerlendirme ve servis bilgisi alın.',
     heroTitle: 'Su Tesisatı Arıza ve Onarım Hizmeti',
     heroDescription:
       'Bağlantı noktalarındaki kaçaklar, eski tesisat parçaları veya flex hortum sorunlarında arızanın yerinde değerlendirilmesi için servis müsaitliğini öğrenin.',
@@ -541,9 +541,9 @@ export const services: Service[] = [
     shortTitle: 'Kombi Montajı',
     cardDescription:
       'Kombi sökme, yerleştirme ve mevcut tesisat bağlantılarının değerlendirilmesine yönelik montaj hizmeti.',
-    seoTitle: 'Kombi Montajı ve Tesisat Bağlantısı | Tesisatçınız',
+    seoTitle: 'Kombi Montajı | Kağıthane, Şişli, Beşiktaş',
     metaDescription:
-      'Kombi montajı, sökme-takma ve tesisat bağlantısı taleplerinde yapılabilecek işlemler ve servis müsaitliği hakkında bilgi alın.',
+      'Kağıthane, Şişli ve Beşiktaş’ta kombi montajı, sökme-takma ve mevcut tesisat bağlantıları için servis kapsamı ve müsaitlik bilgisi alın.',
     heroTitle: 'Kombi Montajı ve Tesisat Bağlantısı',
     heroDescription:
       'Eski kombinin sökülmesi, yenisinin yerleştirilmesi ve mevcut su tesisatı bağlantılarının kontrolü için servis müsaitliğini öğrenin.',
@@ -657,9 +657,9 @@ export const services: Service[] = [
     shortTitle: 'Doğalgaz Tesisatı',
     cardDescription:
       'Doğalgaz iç tesisatı, bağlantı noktaları ve gaz kaçağı şüphelerinde kontrol ve değerlendirme.',
-    seoTitle: 'Doğalgaz Tesisatı ve Gaz Kaçağı Tespiti | Tesisatçınız',
+    seoTitle: 'Doğalgaz Tesisatı ve Kaçak Kontrolü | İstanbul',
     metaDescription:
-      'Kağıthane, Şişli ve Beşiktaş’ta doğalgaz tesisatı kontrolü ve gaz kaçağı tespiti için servis bilgisi alın. Gaz kokusunda güvenli yerden 187’yi arayın.',
+      'Kağıthane, Şişli ve Beşiktaş’ta doğalgaz bağlantısı ve tesisat kontrolü için bilgi alın. Gaz kokusu varsa binadan çıkıp güvenli yerden 187’yi arayın.',
     heroTitle: 'Doğalgaz Tesisatı ve Gaz Kaçağı Tespiti',
     heroDescription:
       'Doğalgaz iç tesisatı, vana ve bağlantı noktalarındaki kaçak şüphelerinin değerlendirilmesi için servis müsaitliğini öğrenin. Aktif gaz kokusunda önce 187’yi arayın.',

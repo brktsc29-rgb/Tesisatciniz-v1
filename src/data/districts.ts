@@ -17,7 +17,7 @@ export const districts: District[] = [
     coordinates: { lat: 41.0819, lng: 28.9647 },
     seoTitle: 'Kağıthane Su Tesisatçısı | Tesisatçınız',
     metaDescription:
-      'Kağıthane ve mahallelerinde klozet, musluk, kombi montajı ve tesisat onarım talepleri için servis müsaitliğini öğrenin.',
+      'Kağıthane’de klozet, musluk ve su tesisatı arızaları için servis alın. Çağlayan, Gültepe, Çeliktepe ve çevresinde müsaitliği telefonla sorun veya fotoğraf gönderin.',
     heroTitle: 'Kağıthane Su Tesisatçısı',
     heroDescription:
       'Kağıthane genelinde klozet arızası, musluk ve kombi montajı ile tesisat onarımı ihtiyaçlarında servis durumunu öğrenmek için arayın veya fotoğraf gönderin.',
@@ -81,7 +81,7 @@ export const districts: District[] = [
     coordinates: { lat: 41.0602, lng: 28.9877 },
     seoTitle: 'Şişli Su Tesisatçısı | Tesisatçınız',
     metaDescription:
-      'Şişli ve çevresinde klozet, musluk, kombi montajı ve tesisat onarımı için servis bilgisi alın.',
+      'Şişli’de klozet, musluk ve su tesisatı arızaları için servis bilgisi alın. Mecidiyeköy, Fulya, Nişantaşı ve çevresinde müsaitliği sorunuzu fotoğrafla ileterek öğrenin.',
     heroTitle: 'Şişli Su Tesisatçısı',
     heroDescription:
       'Şişli ve çevresindeki semtlerde su tesisatı arıza, tıkanıklık ve onarım taleplerinde servis müsaitliğini öğrenmek için arayın veya WhatsApp\'tan fotoğraf gönderin.',
@@ -145,7 +145,7 @@ export const districts: District[] = [
     coordinates: { lat: 41.0430, lng: 29.0061 },
     seoTitle: 'Beşiktaş Su Tesisatçısı | Tesisatçınız',
     metaDescription:
-      'Beşiktaş, Etiler, Levent, Gayrettepe ve çevresinde tesisat arıza, klozet, musluk ve kombi montajı için servis müsaitliğini öğrenin.',
+      'Beşiktaş’ta tesisat arızası, klozet veya musluk sorunu için servis bilgisi alın. Etiler, Levent, Gayrettepe ve çevresinde fotoğraf gönderip müsaitliği öğrenin.',
     heroTitle: 'Beşiktaş Su Tesisatçısı',
     heroDescription:
       'Beşiktaş ve çevresinde su tesisatı arıza, kaçak ve tıkanıklık ihtiyaçlarında temiz ve kontrollü bir müdahale için servis müsaitliğini öğrenin.',
